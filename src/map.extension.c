@@ -6,18 +6,12 @@
 /*   By: anamedin <anamedin@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 16:25:47 by anamedin          #+#    #+#             */
-/*   Updated: 2024/08/06 14:13:31 by anamedin         ###   ########.fr       */
+/*   Updated: 2024/08/06 14:52:56 by anamedin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 //Contiene funciones para leer y validar el archivo de mapa
 #include "../includes/so_long.h"
-
-/*t_game  *init(void)
-{
-
-
-}*/
 
 int validate_file(char **argv)
 {
@@ -39,20 +33,3 @@ int validate_file(char **argv)
     }
     return (1);
 }
-
-
-
-
-
-/*int ft_open_map(char *path)
-{
-    int fd;
-
-    fd = open(path, O_RDONLY);
-    if (fd < 0)
-    {
-        printf("fd < 0");
-        exit(1);
-    }
-    return (fd);
-}*/
