@@ -1,0 +1,78 @@
+W: Mover hacia arriba
+A: Mover hacia la izquierda
+S: Mover hacia abajo
+D: Mover hacia la derecha
+ESC: Salir del juego
+Movimiento del Jugador:			Usa las teclas W, A, S y D para mover el jugador.
+Recolección de Objetos:			El jugador puede recoger objetos (C) y debe alcanzar la salida (E).
+Validación del Mapa:			El juego verifica que el mapa sea rectangular, esté cerrado por muros y tenga una salida y al menos un objeto.
+Visualización de Movimientos:	El número de movimientos se muestra en la consola.
+Cierre Limpio:					El juego se puede cerrar con la tecla ESC o la cruz roja de la ventana.
+**Píxel**:						La unidad más pequeña de una imagen, que contiene información sobre su color.
+**Bitmap**:						Una cuadrícula de píxeles que forma una imagen completa. Cada celda de la cuadrícula es un píxel.
+#=======================================#
+1: Muro
+0: Espacio vacío
+C: Coleccionable
+E: Salida
+P: Posición inicial del jugador
+
+#======================================#
+
+1111111111111
+10010000000C1
+1000011111001
+1P0011E000001
+1111111111111
+
+
+-)The player needs access to the exit.
+-)The player, prior to exiting the map, is able to collect all collectables.
+
+#======================================#
+PRIMERA PARTE
+#=====================================#
+-checker los errores /leaks 
+-errores nb arg
+-malloc estructuras game 
+-extension fichero 
+-mlx_init()
+-lectura de mapa ---> GETNEXTLINE-->>OPEN()-->CLOSE()
+
+-Verificaciones si mapa rectangular
+-Si los caracteres son correctos 
+-crear los muros
+-xpm --> mlx_new_window()---> mlx_xpm_file_image
+-exit()
+	windows: mlx_destroy_window()
+	mlx: mlx_destroy.display() + free
+	sprites: mlx_destroy_image()
+	free()
+
+#===================================#
+SEGUNDA PARTE
+#===================================#
+inicio de structure
+NULL / mlx mlx_init()
+
+#===================================#
+TERCERA PARTE
+#===================================#
+Render
+analizar mapa mlx_put_image_to_window()
+
+#===================================#
+CUARTA PARTE
+#===================================#
+
+Interacion 
+mlx_key_hook() 
+ft_event_key()
+
+#==================================#
+QUINTA PARTE
+#==================================#
+Images en bucle
+mlx_loop()
+mlx_hook()
+
