@@ -16,7 +16,7 @@
 //int fd = ft_open_map("ruta/al/archivo.ber");
 
 //esta funcion es para inicializar la estructura de t_game especificamente t_map  
-t_game  init(void)
+/*t_game  init(void)
 {
     t_game  *game;
 
@@ -37,7 +37,7 @@ t_game  init(void)
     game->map.player.y = -1;
     game->map_alloc = 0;
     return (game);
-}
+}*/
 
 
 //para abrir el mapa le pasamos como parametros la ruta pero y el mapa?
@@ -111,7 +111,7 @@ void    read_map(char **path, t_map *copy_map)
         return; 
     i = 0;
     line = ft_strlen(copy_map->matrix[i++]);
-    copy_map->rows = line;
+    //copy_map->rows = line;
     while (copy_map->matrix[i])
     {
         if(copy_map->matrix[i] != line)
