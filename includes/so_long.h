@@ -30,20 +30,20 @@ typedef struct s_position
 /********Estructura para gestionar imágenes****/
 typedef struct s_image
 {
-  void          *xpm_ptr; // Puntero a la imagen (por ejemplo, en formato XPM)
-  int           x;        // Coordenada X en la ventana
-  int           y;        // Coordenada Y en la ventana
+  void       *xpm_ptr; // Puntero a la imagen (por ejemplo, en formato XPM)
+  int        x;        // Coordenada X en la ventana
+  int        y;        // Coordenada Y en la ventana
 }		t_image;
 
 /******* Estructura para el mapa del juego******/
 typedef struct s_map
 {
   char			**matrix;       // Mapa representado como una matriz de cadenas
-  int			rows;        // Número de filas en el mapa
-  int			columns;     // Número de columnas en el mapa
-  int			coins;       // Número de monedas en el mapa
-  int			exit;        // Número de salidas en el mapa
-  int			player;     // Número de jugadores en el mapa
+  int			  rows;        // Número de filas en el mapa
+  int			  columns;     // Número de columnas en el mapa
+  int			  coins;       // Número de monedas en el mapa
+  int			  exit;        // Número de salidas en el mapa
+  int			  player;     // Número de jugadores en el mapa
   t_position	player;   // Posición del jugador
 }			t_map;
 
@@ -52,10 +52,10 @@ typedef struct s_game
 {
   void			*mlx_ptr;            // Puntero a la instancia de MiniLibX o similar
   void			*win_ptr;            // Puntero a la ventana del juego
-  int			movements;           // Contador de movimientos
-  int			player_sprite;       // Identificador del sprite del jugador
+  int			  movements;           // Contador de movimientos
+  int			  player_sprite;       // Identificador del sprite del jugador
   t_map			map;                 // Información del mapa
-  t_bool		map_alloc;           // Bandera para verificar si el mapa ha sido alocado
+  //t_bool		map_alloc;           // Bandera para verificar si el mapa ha sido alocado
   t_image		wall;                // Imagen para las paredes
   t_image		floor;               // Imagen para el suelo
   t_image		coins;               // Imagen para las monedas
@@ -67,7 +67,7 @@ typedef struct s_game
   t_image		player_back;         // Imagen del jugador mirando hacia atrás
 }			t_game;
 
-int   validate_file(char **argv);
+int   validate_path(char **argv);
 void  read_map(char *path);
 
 #endif // GAME_H
