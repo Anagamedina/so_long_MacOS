@@ -54,7 +54,6 @@ int ft_open_map(char *path)
     return (fd);
 }
 
-//para leer el rchivo linia por linia y lo va almacenar en una matrix
 //estamos creando un puntero a una cadena donde vamos almacenar el archivo 
 //el buffer no me queda claro cuanto seria el maximo 
 
@@ -104,7 +103,7 @@ void    read_map(char **path, t_map *copy_map)
     map1d = read_file(path);
     if (!map1d)
         return;
-    validate_map(map1d, copy_map);
+    //validate_map(map1d, copy_map);
     copy_map->matrix = ft_split(map1d, '\n');
     if (!copy_map->matrix)
         write(1, "error: Failed to split map\n", 27);
@@ -112,9 +111,15 @@ void    read_map(char **path, t_map *copy_map)
         return; 
     i = 0;
     line = ft_strlen(copy_map->matrix[i++]);
-    my_map->rows = line;
+    copy_map->rows = line;
     while (copy_map->matrix[i])
     {
-     //.....   
+        if(copy_map->matrix[i] != line)
+            write(1, "error: Invalid map file", 22);
+        free(line);
+        i++; 
     }
+    copy_map->rows = i;
+    copy_map->columns = line;
+    //free de que...
 }
