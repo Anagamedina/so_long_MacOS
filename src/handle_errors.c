@@ -12,7 +12,34 @@
 
 #include "../includes/so_long.h"
 
-//Una funcion que muestre errores and exit
-//Una funcion que tome como parametros size de la frase del error, la cadena donde guardar el error
-//la isntancia de la estructura 
-void	handle_error(char *)
+static void free_map2d(t_map *copy_map)
+{
+    int i;
+    
+    i = 0;
+    if (copy_map->matrix != NULL)
+    {
+        while (i < copy_map->rows)
+        {
+            if (copy_map->matrix[i] != NULL)
+            {
+                free(copy_map->matrix[i]);
+                copy_map->matrix[i] = NULL;
+            }
+            i++;
+        }
+        free(copy_map->matrix);
+        copy_map->matrix = NULL;
+    }
+}
+
+//Una funcion que tome como parametros size de la frase del error,
+// la cadena donde guardar el error
+//la instancia de la estructura 
+void	handle_error(char *str, int size, t_map *copy_map)
+{
+    write(2, str, size);
+    if(copy_map->matrix != NULL)
+        free_map2d(copy_map);
+    exit(EXIT_FAILURE);
+}

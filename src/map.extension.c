@@ -13,7 +13,7 @@
 //Contiene funciones para leer y validar el archivo de mapa
 #include "../includes/so_long.h"
 
-int	validate_path(char *argv)
+static int	validate_path(char *argv)
 {
 	char	*file_extension;
 	int		len_file_extension;
@@ -32,4 +32,71 @@ int	validate_path(char *argv)
 		len_argv--;
 	}
 	return (1);
+}
+
+static	check_first_and_last_line(t_map *copy_map)
+{
+	int	j;
+
+	j = 0;
+	while (copy_map->matrix[0][j] != '\0')
+	{
+		if (copy_map->matrix[0][j] != '1')
+		{
+			printf(" error no es 1 pared");
+			return (0);
+		}
+		j++;
+	}
+	j = 0;
+	while (copy_map->matrix[copy_map->rows - 1][j] != '\0')
+	{
+		if (copy_map->matrix[copy_map->rows - 1][j] != '1')
+		{
+			printf(" error no es 1 pared");
+			return (0);
+		}
+		j++;
+	}
+	return (1);
+}
+
+static	check_laterals_map(t_map *copy_map)
+{
+	int	i;
+
+	i = 0;
+	while (i < copy_map->rows)
+	{
+		if (copy_map->matrix[i][0] != '1' || copy_map->matrix[i][copy_map->columns - 1] != '1')
+		{
+			printf(" error no es 1 pared");
+			return (0);
+		}
+		i++;
+	}
+	i = 0;
+	while (i < copy_map->rows)
+	{
+		if (copy_map->matrix[i][copy_map->columns - 1] != '1')
+		{
+			printf(" error no es 1 pared");
+			return (0);
+		}
+		i++;
+	}
+	return (1);
+}
+
+void	check_validations(char *path, t_map *copy_map)
+{
+	if (validate_path(path) == 1)
+	{
+		printf("file is valid\n");
+		read_map(path, copy_map);
+		if (check_first_and_last_line(copy_map) == 1 && check_laterals_map(copy_map) == 1)
+			printf("validacion mapa paredes correctas");
+	}
+	else
+		printf("error file\n");
 }
