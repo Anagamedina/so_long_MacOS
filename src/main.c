@@ -25,7 +25,7 @@ int	main(int argc, char **argv)
 	else
 	{
 		game = init_game();
-		check_validations(argv[1], game->map);
+		map_format_border_check(argv[1], game->map);
 	}
 }
     /*mlx_ptr = mlx_init();

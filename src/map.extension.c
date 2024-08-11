@@ -68,7 +68,8 @@ static	check_laterals_map(t_map *copy_map)
 	i = 0;
 	while (i < copy_map->rows)
 	{
-		if (copy_map->matrix[i][0] != '1' || copy_map->matrix[i][copy_map->columns - 1] != '1')
+		if (copy_map->matrix[i][0] != '1' 
+			|| copy_map->matrix[i][copy_map->columns - 1] != '1')
 		{
 			printf(" error no es 1 pared");
 			return (0);
@@ -88,7 +89,7 @@ static	check_laterals_map(t_map *copy_map)
 	return (1);
 }
 
-void	check_validations(char *path, t_map *copy_map)
+void	map_format_border_check(char *path, t_map *copy_map)
 {
 	if (validate_path(path) == 1)
 	{

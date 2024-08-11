@@ -13,7 +13,7 @@
 #include "../includes/so_long.h"
 
 //para abrir el mapa le pasamos como parametros la ruta pero y el mapa?
-int	ft_open_map(char *path)
+static int	ft_open_map(char *path)
 {
 	int	fd;
 
@@ -29,7 +29,7 @@ int	ft_open_map(char *path)
 //estamos creando un puntero a una cadena donde vamos almacenar el archivo 
 //el buffer no me queda claro cuanto seria el maximo 
 
-char	*read_file(char *path)
+static char	*read_file(char *path)
 {
 	int		fd;
 	char	*map1d;

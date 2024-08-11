@@ -43,7 +43,7 @@ typedef struct s_map
 {
   char			**matrix;       // Mapa representado como una matriz de cadenas
   int			  rows;        // Número de filas en el mapa
-  int			  columns;     // Número de columnas en el mapa
+  int			  cols;     // Número de columnas en el mapa
   int			  coins;       // Número de monedas en el mapa
   int			  exit;        // Número de salidas en el mapa
   int			  players;     // Número de jugadores en el mapa
@@ -70,10 +70,8 @@ typedef struct s_game
   t_image		player_back;         // Imagen del jugador mirando hacia atrás
 }			t_game;
 
-int			validate_path(char *argv);
-void		read_map(char *path, t_map *copy_map);
-void		check_validations(char *path, t_map *copy_map);
+void	    map_format_border_check(char *path, t_map *copy_map)
 t_game		*init_game(void);
-
+void	    handle_error(char *str, int size, t_map *copy_map);
 #endif // GAME_H
 
