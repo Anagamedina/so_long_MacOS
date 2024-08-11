@@ -16,8 +16,8 @@
 
 void    map_items(t_map *copy_map)
 {
-    int i;
     int j;
+    int i;
 
     i = 1;
     j = 1;
@@ -34,7 +34,6 @@ void    map_items(t_map *copy_map)
                 copy_map->exit++;
             j++;
         }
-
         i++;
     }
 validations_items(copy_map);
@@ -42,9 +41,9 @@ validations_items(copy_map);
 
 void validations_items(t_map *copy_map)
 {
-    if (copy_map->coins = 0 || copy_map->exit != 1 || copy_map->players != 1)
+    if (copy_map->coins == 0 || copy_map->exit != 1 || copy_map->players != 1)
+    {
         printf("items no correctos\n");
         exit(EXIT_FAILURE);
-
-
+    }
 }

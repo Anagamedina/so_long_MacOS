@@ -1,0 +1,17 @@
+1- Verificación de Conectividad Completa:
+El Flood Fill explora todo el mapa desde la posición del jugador.
+Se asegura que todas las celdas accesibles desde la posición del jugador sean exploradas.
+Se compara el número de celdas visitadas con el total de celdas accesibles en el mapa.
+
+2- Validación de Objetivos Múltiples:
+El Flood Fill debe alcanzar todos los elementos importantes del mapa (salida, monedas, etc.).
+
+3- Verifica que no haya zonas importantes del mapa desconectadas de la posición del jugador.
+Distancia Mínima de Recorrido:
+Se implementa una validación adicional para asegurar que la salida no esté demasiado cerca del jugador al inicio.
+El Flood Fill debe recorrer una parte significativa del mapa antes de encontrar la salida.
+Se asegura que haya un número mínimo de pasos requeridos para llegar a la salida.
+
+4- Validación de Caminos Alternativos:
+Se verifica que el jugador tenga más de un camino disponible.
+Si solo hay un camino directo y las demás rutas están bloqueadas, el mapa podría considerarse inválido.
