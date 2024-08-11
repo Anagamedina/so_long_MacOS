@@ -1,0 +1,3 @@
+/home/daruuu/CLionProjects/so_long_anaa/cmake-build-debug/CMakeFiles/so_long_anaa.dir
+/home/daruuu/CLionProjects/so_long_anaa/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/daruuu/CLionProjects/so_long_anaa/cmake-build-debug/CMakeFiles/rebuild_cache.dir

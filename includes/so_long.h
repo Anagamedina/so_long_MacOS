@@ -6,7 +6,7 @@
 /*   By: anamedin <anamedin@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 16:26:31 by anamedin          #+#    #+#             */
-/*   Updated: 2024/08/06 15:01:58 by anamedin         ###   ########.fr       */
+/*   Updated: 2024/08/10 10:29:45 by anamedin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,9 @@
 # include "../libft/libft.h"
 # include "../minilibx-linux/mlx.h"
 # include <strings.h>
+# include <stdlib.h>
+//# include <stddef.h>
+# include <fcntl.h>
 
 
 /********Estructura para posiciones en 2D*****/
@@ -43,7 +46,7 @@ typedef struct s_map
   int			  columns;     // Número de columnas en el mapa
   int			  coins;       // Número de monedas en el mapa
   int			  exit;        // Número de salidas en el mapa
-  int			  player;     // Número de jugadores en el mapa
+  int			  players;     // Número de jugadores en el mapa
   t_position	player;   // Posición del jugador
 }			t_map;
 
@@ -54,7 +57,7 @@ typedef struct s_game
   void			*win_ptr;            // Puntero a la ventana del juego
   int			  movements;           // Contador de movimientos
   int			  player_sprite;       // Identificador del sprite del jugador
-  t_map			map;                 // Información del mapa
+  t_map			*map;                 // Información del mapa
   //t_bool		map_alloc;           // Bandera para verificar si el mapa ha sido alocado
   t_image		wall;                // Imagen para las paredes
   t_image		floor;               // Imagen para el suelo
@@ -67,8 +70,10 @@ typedef struct s_game
   t_image		player_back;         // Imagen del jugador mirando hacia atrás
 }			t_game;
 
-int   validate_path(char **argv);
-void  read_map(char *path);
+int			validate_path(char *argv);
+void		read_map(char *path, t_map *copy_map);
+void		check_validations(char *path, t_map *copy_map);
+t_game		*init_game(void);
 
 #endif // GAME_H
 

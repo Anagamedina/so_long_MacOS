@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anamedin <anamedin@student.42barcel>       +#+  +:+       +#+        */
+/*   By: anamedin <anamedin@student.42barcelona.c>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/22 16:25:28 by anamedin          #+#    #+#             */
-/*   Updated: 2024/08/06 14:05:36 by anamedin         ###   ########.fr       */
+/*   Created: 2024/08/09 21:36:41 by anamedin          #+#    #+#             */
+/*   Updated: 2024/08/10 10:31:48 by anamedin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,20 @@
 #include "../includes/so_long.h"
 #include <stdio.h>
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
-    t_game  *game; 
-    void    *mlx_ptr;
-    void    *win_ptr;
+	t_game	*game;
+	void	*mlx_ptr;
+	void	*win_ptr;
 
-    if (argc != 2)
-    {
-        printf("Error\n");
-    }
-    else
-    {
-        if (validate_file(argv))
-            printf("valid map\n");
-        else
-            printf("error map\n");
-    }
+	if (argc != 2)
+		printf("Error argumentos invalidos\n");
+	else
+	{
+		game = init_game();
+		check_validations(argv[1], game->map);
+	}
+
 }
 
 

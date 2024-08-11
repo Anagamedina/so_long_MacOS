@@ -13,23 +13,23 @@
 //Contiene funciones para leer y validar el archivo de mapa
 #include "../includes/so_long.h"
 
-int validate_path(char **argv)
+int	validate_path(char *argv)
 {
-    char    *file_extension;
-    int     len_file_extension;
-    int     len_argv;
-    int     i;
+	char	*file_extension;
+	int		len_file_extension;
+	int		len_argv;
+	int		i;
 
-    file_extension = ".ber";
-    len_file_extension  = strlen(file_extension);
-    len_argv = strlen(argv[1]);
-    i = len_file_extension;
-    while (i >= 0)
-    {
-        if (argv[1][len_argv] != file_extension[i])
-            return (0);
-        i--;
-        len_argv--;
-    }
-    return (1);
+	file_extension = ".ber";
+	len_file_extension = ft_strlen (file_extension);
+	len_argv = ft_strlen(argv);
+	i = len_file_extension;
+	while (i >= 0)
+	{
+		if (argv[len_argv] != file_extension[i])
+			return (0);
+		i--;
+		len_argv--;
+	}
+	return (1);
 }
