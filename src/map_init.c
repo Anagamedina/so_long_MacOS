@@ -19,10 +19,8 @@ static int	ft_open_map(char *path)
 
 	fd = open(path, O_RDONLY);
 	if (fd < 0)
-	{
-		printf("fd < 0");
-		exit(0);
-	}
+		handle_exit(ERROR_OPEN_FILE, 33);
+	
 	return (fd);
 }
 
@@ -43,13 +41,10 @@ static char	*read_file(char *path)
 	close (fd);
 
 	if (i == 0)
-	{
-		write(1, "error: Empty file\n", 18);
-		return (NULL);
-	}
+		handle_exit(ERROR_OPEN_FILE, 33);	
 	map1d = (char *)malloc(i + 1);
 	if (!map1d)
-		write(1, "error: Memory allocation failed\n", 32);
+		handle_exit(ERROR_MEMORY, 34);
 	fd = open(path, O_RDONLY);
 	read (fd, map1d, i);
 //	printf("%s\n", map1d);
@@ -80,11 +75,7 @@ void	read_map(char *path, t_map *copy_map)
 		i++;
 	copy_map->rows = i;
 	if (!copy_map->matrix)
-	{
-		write(1, "error: Failed to split map\n", 27);
-		free(map1d);
-		return ;
-	}
+		handle_error(ERROR_MEMORY_ALLOCATION, 33, copy_map);	
 	line = (int) ft_strlen(copy_map->matrix[0]);
 	copy_map->cols = line;
 //	printf("line 0: %d\n", line);
@@ -94,10 +85,7 @@ void	read_map(char *path, t_map *copy_map)
 		line = (int) ft_strlen(copy_map->matrix[i]);
 //		printf("line %i: %d\n", i, line);
 		if (copy_map->cols != line)
-		{
-			write(1, "error: Invalid map file\n", 24);
-			exit(0);
-		}
+			handle_error(ERROR_INVALID_MAP, 24, copy_map);	
 		i++;
 	}
 }

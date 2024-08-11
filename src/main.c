@@ -21,7 +21,7 @@ int	main(int argc, char **argv)
 	void	*win_ptr;
 
 	if (argc != 2)
-		printf("Error argumentos invalidos\n");
+        handle_error(ERROR_INVALID_ARG, 25, game);	
 	else
 	{
 		game = init_game();

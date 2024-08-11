@@ -73,5 +73,6 @@ typedef struct s_game
 void	    map_format_border_check(char *path, t_map *copy_map);
 t_game		*init_game(void);
 void	    handle_error(char *str, int size, t_map *copy_map);
+void	    handle_exit(char *str, int size);
 #endif // GAME_H
 

@@ -43,3 +43,8 @@ void	handle_error(char *str, int size, t_map *copy_map)
         free_map2d(copy_map);
     exit(EXIT_FAILURE);
 }
+void	handle_exit(char *str, int size)
+{
+    write(2, str, size);
+    exit(EXIT_FAILURE);
+}

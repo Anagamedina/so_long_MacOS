@@ -15,11 +15,14 @@
 
 #define ERROR_INVALID_MAP "error: Invalid map file"
 #define ERROR_MEMORY_ALLOCATION "error: Memory allocation failed\n"
+#define ERROR_INVALID_ARG "Error\nInvalid argument.\n"
+/*--------------------Error messages-------------------*/
+#define ERROR_OPEN_FILE "Error\nFailure to open arg-file.\n"
+#define ERROR_MEMORY "Error\nMemory allocation failure.\n"
 
 /*/*--------------------Error messages-------------------*/
 
 /*# define PRINT_ERR_1 "Error\nInvalid arg number.\n"
-# define PRINT_ERR_2 "Error\nInvalid argument.\n"
 # define PRINT_ERR_3 "Error\nInvalid arg_file extension.\n"
 # define PRINT_ERR_4 "Error\nFailure to open arg-file.\n"
 # define PRINT_ERR_5 "Error\nInvalid map.\n"
