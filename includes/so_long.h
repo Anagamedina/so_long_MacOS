@@ -6,7 +6,7 @@
 /*   By: anamedin <anamedin@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 16:26:31 by anamedin          #+#    #+#             */
-/*   Updated: 2024/08/10 10:29:45 by anamedin         ###   ########.fr       */
+/*   Updated: 2024/08/11 16:49:24 by anamedin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 # include <stdlib.h>
 //# include <stddef.h>
 # include <fcntl.h>
-
+# include "macros.h"
 
 /********Estructura para posiciones en 2D*****/
 typedef struct s_position

@@ -1,22 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_structs.c                                     :+:      :+:    :+:   */
+/*   handle_errors.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anamedin <anamedin@student.42barcel>       +#+  +:+       +#+        */
+/*   By: anamedin <anamedin@student.42barcelona.c>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/11 14:07:52 by anamedin          #+#    #+#             */
-/*   Updated: 2024/08/11 14:07:57 by anamedin         ###   ########.fr       */
+/*   Created: 2024/08/11 13:33:16 by anamedin          #+#    #+#             */
+/*   Updated: 2024/08/11 13:51:09 by anamedin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-t_position	inti_positions(void)
-{
-	t_position	new_positions;
-
-	new_positions.x = 0;
-	new_positions.y = 0;
-	return (new_positions);
-}
+//Una funcion que muestre errores and exit
+//Una funcion que tome como parametros size de la frase del error, la cadena donde guardar el error
+//la isntancia de la estructura 
+void	handle_error(char *)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anamedin <anamedin@student.42barcelona.c>  +#+  +:+       +#+        */
+/*   By: anamedin <anamedin@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/09 21:36:41 by anamedin          #+#    #+#             */
-/*   Updated: 2024/08/10 10:31:48 by anamedin         ###   ########.fr       */
+/*   Created: 2024/08/11 14:31:54 by anamedin          #+#    #+#             */
+/*   Updated: 2024/08/11 14:43:43 by anamedin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,7 @@ int	main(int argc, char **argv)
 		game = init_game();
 		check_validations(argv[1], game->map);
 	}
-
 }
-
-
     /*mlx_ptr = mlx_init();
     if (mlx_ptr == NULL)
     {

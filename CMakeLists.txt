@@ -14,4 +14,7 @@ add_executable(so_long_anaa
         libft/ft_calloc.c
         libft/ft_bzero.c
         src/init_structs.c
+        src/handle_errors.c
+        src/handle_errors.c
+        includes/macros.h
 )

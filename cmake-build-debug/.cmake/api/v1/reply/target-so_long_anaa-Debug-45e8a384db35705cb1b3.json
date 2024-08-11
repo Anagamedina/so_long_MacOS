@@ -56,7 +56,8 @@
 				6,
 				7,
 				8,
-				9
+				9,
+				10
 			]
 		}
 	],
@@ -96,7 +97,8 @@
 				6,
 				7,
 				8,
-				9
+				9,
+				10
 			]
 		},
 		{
@@ -104,7 +106,8 @@
 			"sourceIndexes" : 
 			[
 				3,
-				4
+				4,
+				11
 			]
 		}
 	],
@@ -167,6 +170,17 @@
 			"compileGroupIndex" : 0,
 			"path" : "src/init_structs.c",
 			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/handle_errors.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "includes/macros.h",
+			"sourceGroupIndex" : 1
 		}
 	],
 	"type" : "EXECUTABLE"
