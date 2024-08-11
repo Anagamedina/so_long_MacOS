@@ -70,7 +70,7 @@ typedef struct s_game
   t_image		player_back;         // Imagen del jugador mirando hacia atrás
 }			t_game;
 
-void	    map_format_border_check(char *path, t_map *copy_map)
+void	    map_format_border_check(char *path, t_map *copy_map);
 t_game		*init_game(void);
 void	    handle_error(char *str, int size, t_map *copy_map);
 #endif // GAME_H

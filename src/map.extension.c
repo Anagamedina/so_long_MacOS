@@ -69,7 +69,7 @@ static	check_laterals_map(t_map *copy_map)
 	while (i < copy_map->rows)
 	{
 		if (copy_map->matrix[i][0] != '1' 
-			|| copy_map->matrix[i][copy_map->columns - 1] != '1')
+			|| copy_map->matrix[i][copy_map->cols - 1] != '1')
 		{
 			printf(" error no es 1 pared");
 			return (0);
@@ -79,7 +79,7 @@ static	check_laterals_map(t_map *copy_map)
 	i = 0;
 	while (i < copy_map->rows)
 	{
-		if (copy_map->matrix[i][copy_map->columns - 1] != '1')
+		if (copy_map->matrix[i][copy_map->cols - 1] != '1')
 		{
 			printf(" error no es 1 pared");
 			return (0);

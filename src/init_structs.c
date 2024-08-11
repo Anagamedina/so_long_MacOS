@@ -32,7 +32,7 @@ t_game	*init_game(void)
 	}
 	copy_map->matrix = NULL;
 	copy_map->rows = 0;
-	copy_map->columns = 0;
+	copy_map->cols = 0;
 	copy_map->coins = 0;
 	copy_map->exit = 0;
 	copy_map->players = 0;

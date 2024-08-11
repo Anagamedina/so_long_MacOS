@@ -86,14 +86,14 @@ void	read_map(char *path, t_map *copy_map)
 		return ;
 	}
 	line = (int) ft_strlen(copy_map->matrix[0]);
-	copy_map->columns = line;
+	copy_map->cols = line;
 //	printf("line 0: %d\n", line);
 	i = 1;
 	while (copy_map->matrix[i] != NULL)
 	{
 		line = (int) ft_strlen(copy_map->matrix[i]);
 //		printf("line %i: %d\n", i, line);
-		if (copy_map->columns != line)
+		if (copy_map->cols != line)
 		{
 			write(1, "error: Invalid map file\n", 24);
 			exit(0);
