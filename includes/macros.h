@@ -18,7 +18,7 @@
 
 /*/*--------------------Error messages-------------------*/
 
-# define PRINT_ERR_1 "Error\nInvalid arg number.\n"
+/*# define PRINT_ERR_1 "Error\nInvalid arg number.\n"
 # define PRINT_ERR_2 "Error\nInvalid argument.\n"
 # define PRINT_ERR_3 "Error\nInvalid arg_file extension.\n"
 # define PRINT_ERR_4 "Error\nFailure to open arg-file.\n"
