@@ -19,7 +19,7 @@ static int	ft_open_map(char *path)
 
 	fd = open(path, O_RDONLY);
 	if (fd < 0)
-		handle_exit(ERROR_OPEN_FILE, 33);
+		handle_exit(ERROR_OPEN_FILE, 34);
 	
 	return (fd);
 }
@@ -41,10 +41,13 @@ static char	*read_file(char *path)
 	close (fd);
 
 	if (i == 0)
-		handle_exit(ERROR_OPEN_FILE, 33);	
+		handle_exit(ERROR_OPEN_FILE, 34);	
 	map1d = (char *)malloc(i + 1);
 	if (!map1d)
-		handle_exit(ERROR_MEMORY, 34);
+	{
+		//free(map1d);
+		handle_exit(ERROR_MEMORY, 35);
+	}
 	fd = open(path, O_RDONLY);
 	read (fd, map1d, i);
 //	printf("%s\n", map1d);
@@ -69,13 +72,14 @@ void	read_map(char *path, t_map *copy_map)
 	i = 0;
 	map1d = read_file(path);
 	if (!map1d)
-		return ;
+	 	return;
 	copy_map->matrix = ft_split(map1d, '\n');
+	free(map1d);
 	while (copy_map->matrix[i] != NULL)
 		i++;
 	copy_map->rows = i;
 	if (!copy_map->matrix)
-		handle_error(ERROR_MEMORY_ALLOCATION, 33, copy_map);	
+		handle_error(ERROR_MEMORY_ALLOCATION, 35, copy_map);	
 	line = (int) ft_strlen(copy_map->matrix[0]);
 	copy_map->cols = line;
 //	printf("line 0: %d\n", line);
@@ -85,7 +89,7 @@ void	read_map(char *path, t_map *copy_map)
 		line = (int) ft_strlen(copy_map->matrix[i]);
 //		printf("line %i: %d\n", i, line);
 		if (copy_map->cols != line)
-			handle_error(ERROR_INVALID_MAP, 24, copy_map);	
+			handle_error(ERROR_INVALID_MAP, 23, copy_map);	
 		i++;
 	}
 }

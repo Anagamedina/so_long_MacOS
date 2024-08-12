@@ -53,21 +53,21 @@ typedef struct s_map
 /********Estructura principal del juego****/
 typedef struct s_game
 {
-  void			*mlx_ptr;            // Puntero a la instancia de MiniLibX o similar
-  void			*win_ptr;            // Puntero a la ventana del juego
-  int			  movements;           // Contador de movimientos
-  int			  player_sprite;       // Identificador del sprite del jugador
+  // void			*mlx_ptr;            // Puntero a la instancia de MiniLibX o similar
+  // void			*win_ptr;            // Puntero a la ventana del juego
+  // int			  movements;           // Contador de movimientos
+  // int			  player_sprite;       // Identificador del sprite del jugador
   t_map			*map;                 // Información del mapa
   //t_bool		map_alloc;           // Bandera para verificar si el mapa ha sido alocado
-  t_image		wall;                // Imagen para las paredes
-  t_image		floor;               // Imagen para el suelo
-  t_image		coins;               // Imagen para las monedas
-  t_image		open_exit;           // Imagen para la salida abierta
-  t_image		exit_closed;         // Imagen para la salida cerrada
-  t_image		player_front;        // Imagen del jugador mirando hacia adelante
-  t_image		player_left;         // Imagen del jugador mirando hacia la izquierda
-  t_image		player_right;        // Imagen del jugador mirando hacia la derecha
-  t_image		player_back;         // Imagen del jugador mirando hacia atrás
+  // t_image		wall;                // Imagen para las paredes
+  // t_image		floor;               // Imagen para el suelo
+  // t_image		coins;               // Imagen para las monedas
+  // t_image		open_exit;           // Imagen para la salida abierta
+  // t_image		exit_closed;         // Imagen para la salida cerrada
+  // t_image		player_front;        // Imagen del jugador mirando hacia adelante
+  // t_image		player_left;         // Imagen del jugador mirando hacia la izquierda
+  // t_image		player_right;        // Imagen del jugador mirando hacia la derecha
+  // t_image		player_back;         // Imagen del jugador mirando hacia atrás
 }			t_game;
 
 void	    map_format_border_check(char *path, t_map *copy_map);
@@ -77,5 +77,7 @@ void	    handle_exit(char *str, int size);
 void      map_items(t_map *copy_map);
 void      read_map(char *path, t_map *copy_map);
 void      validations_items(t_map *copy_map);
+void      free_game(t_game *game);
+void      free_map2d(t_map *copy_map);
 #endif // GAME_H
 

@@ -16,18 +16,21 @@
 
 int	main(int argc, char **argv)
 {
-	t_game	*game;
+	t_game	*game = NULL;
 	//void	*mlx_ptr;
 	//void	*win_ptr;
 
 	if (argc != 2)
-        handle_exit(ERROR_INVALID_ARG, 25);	
+        handle_exit(ERROR_INVALID_ARG, 28);	
 	else
 	{
 		game = init_game();
 		map_format_border_check(argv[1], game->map);
         map_items(game->map);
 	}
+    //free_map2d(game->map);
+    free_game(game); 
+    return(0);
 }
 
 

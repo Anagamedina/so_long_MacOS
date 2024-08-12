@@ -20,16 +20,21 @@
 t_game	*init_game(void)
 {
 	t_game	*game;
-	t_map	*copy_map;
+	t_map	*copy_map = NULL;
 
-	game = malloc(sizeof(t_game));
-	copy_map = malloc(sizeof (t_map));
-	if (!game || !copy_map)
-	{
-		free(game);
-		free(copy_map);
+ 	game = (t_game *) malloc(sizeof(t_game));
+   	if (!game)
+    {
 		return (NULL);
-	}
+    }
+
+    // Asignar memoria para 'copy_map'
+    copy_map = (t_map *)malloc(sizeof(t_map));
+    if (!copy_map)
+    {
+		//free(game);  // Liberar la memoria de 'game' en caso de error
+        return (NULL);
+    } 
 	copy_map->matrix = NULL;
 	copy_map->rows = 0;
 	copy_map->cols = 0;

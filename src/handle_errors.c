@@ -12,7 +12,7 @@
 
 #include "../includes/so_long.h"
 
-static void free_map2d(t_map *copy_map)
+void free_map2d(t_map *copy_map)
 {
     int i;
     
@@ -24,12 +24,11 @@ static void free_map2d(t_map *copy_map)
             if (copy_map->matrix[i] != NULL)
             {
                 free(copy_map->matrix[i]);
-                copy_map->matrix[i] = NULL;
             }
             i++;
         }
         free(copy_map->matrix);
-        copy_map->matrix = NULL;
+        free(copy_map);
     }
 }
 
@@ -47,4 +46,17 @@ void	handle_exit(char *str, int size)
 {
     write(2, str, size);
     exit(EXIT_FAILURE);
+}
+
+void free_game(t_game *game)
+{
+    if (game)
+    {
+        if (game->map)
+        {
+            free_map2d(game->map);  // Liberar la matriz 2D
+            free(game->map);        // Liberar la estructura t_map
+        }
+        free(game);  // Liberar la estructura t_game
+    }
 }
