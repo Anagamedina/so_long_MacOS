@@ -42,6 +42,7 @@ void	handle_error(char *str, int size, t_map *copy_map)
         free_map2d(copy_map);
     exit(EXIT_FAILURE);
 }
+
 void	handle_exit(char *str, int size)
 {
     write(2, str, size);
@@ -53,10 +54,7 @@ void free_game(t_game *game)
     if (game)
     {
         if (game->map)
-        {
             free_map2d(game->map);  // Liberar la matriz 2D
-            free(game->map);        // Liberar la estructura t_map
-        }
         free(game);  // Liberar la estructura t_game
     }
 }

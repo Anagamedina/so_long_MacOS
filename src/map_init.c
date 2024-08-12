@@ -45,8 +45,9 @@ static char	*read_file(char *path)
 	map1d = (char *)malloc(i + 1);
 	if (!map1d)
 	{
+		return (NULL);
 		//free(map1d);
-		handle_exit(ERROR_MEMORY, 35);
+		// handle_exit(ERROR_MEMORY, 35);
 	}
 	fd = open(path, O_RDONLY);
 	read (fd, map1d, i);
@@ -69,25 +70,23 @@ void	read_map(char *path, t_map *copy_map)
 	int		i;
 	int		line;
 
-	i = 0;
 	map1d = read_file(path);
-	if (!map1d)
-	 	return;
+	if (map1d == NULL)
+	 	return ;
 	copy_map->matrix = ft_split(map1d, '\n');
 	free(map1d);
+
+	i = 0;
 	while (copy_map->matrix[i] != NULL)
 		i++;
 	copy_map->rows = i;
-	if (!copy_map->matrix)
-		handle_error(ERROR_MEMORY_ALLOCATION, 35, copy_map);	
+
 	line = (int) ft_strlen(copy_map->matrix[0]);
 	copy_map->cols = line;
-//	printf("line 0: %d\n", line);
 	i = 1;
 	while (copy_map->matrix[i] != NULL)
 	{
 		line = (int) ft_strlen(copy_map->matrix[i]);
-//		printf("line %i: %d\n", i, line);
 		if (copy_map->cols != line)
 			handle_error(ERROR_INVALID_MAP, 23, copy_map);	
 		i++;

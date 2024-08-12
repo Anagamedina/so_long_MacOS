@@ -52,7 +52,7 @@ static int	check_first_and_last_line(t_map *copy_map)
 			handle_error(ERROR_WALLS, 31, copy_map);	
 		j++;
 	}
-	return (1);
+	return (0);
 }
 
 static int 	check_laterals_map(t_map *copy_map)
@@ -74,7 +74,7 @@ static int 	check_laterals_map(t_map *copy_map)
 			handle_error(ERROR_WALLS, 31, copy_map);
 		i++;
 	}
-	return (1);
+	return (0);
 }
 
 void	map_format_border_check(char *path, t_map *copy_map)
@@ -83,7 +83,7 @@ void	map_format_border_check(char *path, t_map *copy_map)
 	{
 		printf("file is valid\n");
 		read_map(path, copy_map);
-		if (check_first_and_last_line(copy_map) == 1 && check_laterals_map(copy_map) == 1)
+		if (check_first_and_last_line(copy_map) && check_laterals_map(copy_map))
 			printf("validacion mapa paredes correctas\n");
 	}
 	else

@@ -7,3 +7,6 @@ una funcion qu enos imprima la matriz
 inti structs
 
 reset structs
+
+
+make && valgrind --leak-check=full --show-leak-kinds=reachable  ./so_long maps/map_3.ber                     ─╯

@@ -36,7 +36,7 @@ void    map_items(t_map *copy_map)
         }
         i++;
     }
-validations_items(copy_map);
+    validations_items(copy_map);
 }
 
 /*void validations_items(t_map *copy_map)
@@ -59,6 +59,7 @@ void validations_items(t_map *copy_map)
     if (copy_map->coins > 1 || copy_map->exit != 1 || copy_map->players != 1)
     {
         printf("Items no correctos\n");
+        free_map2d(copy_map);
         exit(EXIT_FAILURE);
     }
     else

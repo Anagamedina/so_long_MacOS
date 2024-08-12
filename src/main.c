@@ -25,11 +25,14 @@ int	main(int argc, char **argv)
 	else
 	{
 		game = init_game();
-		map_format_border_check(argv[1], game->map);
-        map_items(game->map);
+        if (game != NULL)
+        {
+		    map_format_border_check(argv[1], game->map);
+            map_items(game->map);
+        }
+        free_game(game); 
 	}
     //free_map2d(game->map);
-    free_game(game); 
     return(0);
 }
 

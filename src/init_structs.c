@@ -32,8 +32,8 @@ t_game	*init_game(void)
     copy_map = (t_map *)malloc(sizeof(t_map));
     if (!copy_map)
     {
-		//free(game);  // Liberar la memoria de 'game' en caso de error
-        return (NULL);
+		free(game);  // Liberar la memoria de 'game' en caso de error
+       return (NULL);
     } 
 	copy_map->matrix = NULL;
 	copy_map->rows = 0;
