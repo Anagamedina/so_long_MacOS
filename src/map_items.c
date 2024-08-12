@@ -21,10 +21,10 @@ void    map_items(t_map *copy_map)
 
     i = 1;
     j = 1;
-    while (i < copy_map->rows - 2)
+    while (i < copy_map->rows - 1)
     {
         j = 1;
-        while (j < copy_map->cols - 2)
+        while (j < copy_map->cols - 1)
         {
             if (copy_map->matrix[i][j] == 'P')
                 copy_map->players++;
@@ -39,11 +39,28 @@ void    map_items(t_map *copy_map)
 validations_items(copy_map);
 }
 
-void validations_items(t_map *copy_map)
+/*void validations_items(t_map *copy_map)
 {
-    if (copy_map->coins == 0 || copy_map->exit != 1 || copy_map->players != 1)
+    if (copy_map->coins > 1 || copy_map->exit != 1 || copy_map->players != 1)
     {
         printf("items no correctos\n");
         exit(EXIT_FAILURE);
     }
+    else
+        printf("items ok");
+}*/
+
+void validations_items(t_map *copy_map)
+{
+    printf("Players: %d\n", copy_map->players);
+    printf("Coins: %d\n", copy_map->coins);
+    printf("Exit: %d\n", copy_map->exit);
+
+    if (copy_map->coins > 1 || copy_map->exit != 1 || copy_map->players != 1)
+    {
+        printf("Items no correctos\n");
+        exit(EXIT_FAILURE);
+    }
+    else
+        printf("Items ok\n");
 }

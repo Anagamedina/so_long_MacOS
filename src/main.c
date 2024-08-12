@@ -17,17 +17,22 @@
 int	main(int argc, char **argv)
 {
 	t_game	*game;
-	void	*mlx_ptr;
-	void	*win_ptr;
+	//void	*mlx_ptr;
+	//void	*win_ptr;
 
 	if (argc != 2)
-        handle_error(ERROR_INVALID_ARG, 25, game);	
+        handle_exit(ERROR_INVALID_ARG, 25);	
 	else
 	{
 		game = init_game();
 		map_format_border_check(argv[1], game->map);
+        map_items(game->map);
 	}
 }
+
+
+
+
     /*mlx_ptr = mlx_init();
     if (mlx_ptr == NULL)
     {

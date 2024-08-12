@@ -34,7 +34,7 @@ static int	validate_path(char *argv)
 	return (1);
 }
 
-static	check_first_and_last_line(t_map *copy_map)
+static int	check_first_and_last_line(t_map *copy_map)
 {
 	int	j;
 
@@ -42,20 +42,20 @@ static	check_first_and_last_line(t_map *copy_map)
 	while (copy_map->matrix[0][j] != '\0')
 	{
 		if (copy_map->matrix[0][j] != '1')
-			handle_error(ERROR_INVALID_MAP, 24, copy_map);
+			handle_error(ERROR_WALLS, 28, copy_map);
 		j++;
 	}
 	j = 0;
 	while (copy_map->matrix[copy_map->rows - 1][j] != '\0')
 	{
 		if (copy_map->matrix[copy_map->rows - 1][j] != '1')
-			handle_error(ERROR_INVALID_MAP, 24, copy_map);	
+			handle_error(ERROR_WALLS, 28, copy_map);	
 		j++;
 	}
 	return (1);
 }
 
-static	check_laterals_map(t_map *copy_map)
+static int 	check_laterals_map(t_map *copy_map)
 {
 	int	i;
 
@@ -64,14 +64,14 @@ static	check_laterals_map(t_map *copy_map)
 	{
 		if (copy_map->matrix[i][0] != '1' 
 			|| copy_map->matrix[i][copy_map->cols - 1] != '1')
-			handle_error(ERROR_INVALID_MAP, 24, copy_map);
+			handle_error(ERROR_WALLS, 28, copy_map);
 		i++;
 	}
 	i = 0;
 	while (i < copy_map->rows)
 	{
 		if (copy_map->matrix[i][copy_map->cols - 1] != '1')
-			handle_error(ERROR_INVALID_MAP, 24, copy_map);
+			handle_error(ERROR_WALLS, 28, copy_map);
 		i++;
 	}
 	return (1);
@@ -84,7 +84,7 @@ void	map_format_border_check(char *path, t_map *copy_map)
 		printf("file is valid\n");
 		read_map(path, copy_map);
 		if (check_first_and_last_line(copy_map) == 1 && check_laterals_map(copy_map) == 1)
-			printf("validacion mapa paredes correctas");
+			printf("validacion mapa paredes correctas\n");
 	}
 	else
 		printf("error file\n");
