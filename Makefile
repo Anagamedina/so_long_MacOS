@@ -14,7 +14,7 @@ NAME = so_long
 
 #compilador y flags
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -Iincludes -I$(MLX_DIR) -I$(LIBFT_DIR) -g
+CFLAGS = -Wall -Wextra -Werror -Iincludes -I$(MLX_DIR) -I$(LIBFT_DIR) -g -fsanitize=address
 
 #Directorios 
 SRC_DIR = src

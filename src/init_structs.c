@@ -33,7 +33,7 @@ t_game	*init_game(void)
     if (!copy_map)
     {
 		free(game);  // Liberar la memoria de 'game' en caso de error
-       return (NULL);
+    	return (NULL);
     } 
 	copy_map->matrix = NULL;
 	copy_map->rows = 0;

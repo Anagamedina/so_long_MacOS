@@ -19,7 +19,7 @@ static int	ft_open_map(char *path)
 
 	fd = open(path, O_RDONLY);
 	if (fd < 0)
-		handle_exit(ERROR_OPEN_FILE, 34);
+		handle_exit(ERROR_OPEN_FILE, 26);
 	
 	return (fd);
 }
@@ -33,25 +33,37 @@ static char	*read_file(char *path)
 	char	*map1d;
 	char	buffer;
 	int		i;
+	ssize_t	bytes_read;
 
 	fd = ft_open_map(path);
 	i = 0;
-	while (read(fd, &buffer, 1))
+	while ((bytes_read = read(fd, &buffer, 1)) > 0)
 		i++;
 	close (fd);
 
 	if (i == 0)
-		handle_exit(ERROR_OPEN_FILE, 34);	
+		handle_exit(ERROR_OPEN_FILE, 26);	
 	map1d = (char *)malloc(i + 1);
 	if (!map1d)
 	{
-		return (NULL);
+		//return (NULL);
 		//free(map1d);
-		// handle_exit(ERROR_MEMORY, 35);
+		handle_exit(ERROR_MEMORY, 35);
 	}
 	fd = open(path, O_RDONLY);
-	read (fd, map1d, i);
-//	printf("%s\n", map1d);
+	if (fd < 0)
+    {
+        // free(map1d);
+        handle_exit("Error reopening file.\n", 22);
+    }
+
+	bytes_read = read(fd, map1d, i);
+	if (bytes_read < 0) 
+	{
+		// free(map1d);
+		// close(fd);
+		handle_exit(ERROR_OPEN_FILE, 26);
+	}	
 	map1d[i] = '\0';
 	close(fd);
 	return (map1d);
@@ -76,6 +88,9 @@ void	read_map(char *path, t_map *copy_map)
 	copy_map->matrix = ft_split(map1d, '\n');
 	free(map1d);
 
+	if (copy_map->matrix == NULL)
+		handle_exit(ERROR_MEMORY, 35);
+
 	i = 0;
 	while (copy_map->matrix[i] != NULL)
 		i++;
@@ -83,12 +98,12 @@ void	read_map(char *path, t_map *copy_map)
 
 	line = (int) ft_strlen(copy_map->matrix[0]);
 	copy_map->cols = line;
-	i = 1;
+	i = 0;
 	while (copy_map->matrix[i] != NULL)
 	{
 		line = (int) ft_strlen(copy_map->matrix[i]);
 		if (copy_map->cols != line)
-			handle_error(ERROR_INVALID_MAP, 23, copy_map);	
+			handle_error(ERROR_INVALID_MAP, 23, copy_map, NULL);	
 		i++;
 	}
 }

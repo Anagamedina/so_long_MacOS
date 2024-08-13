@@ -16,9 +16,13 @@ void free_map2d(t_map *copy_map)
 {
     int i;
     
-    i = 0;
+    if (copy_map == NULL)
+    {
+        return; // No hacer nada si 'copy_map' es NULL
+    }
     if (copy_map->matrix != NULL)
     {
+        i = 0;
         while (i < copy_map->rows)
         {
             if (copy_map->matrix[i] != NULL)
@@ -28,18 +32,23 @@ void free_map2d(t_map *copy_map)
             i++;
         }
         free(copy_map->matrix);
-        free(copy_map);
     }
+    free(copy_map);
 }
 
-//Una funcion que tome como parametros size de la frase del error,
-// la cadena donde guardar el error
-//la instancia de la estructura 
-void	handle_error(char *str, int size, t_map *copy_map)
+void handle_error(char *str, int size, t_map *copy_map, t_game *game)
 {
-    write(2, str, size);
-    if(copy_map->matrix != NULL)
+    if (str && size > 0)
+        write(2, str, size);
+    
+    if (copy_map != NULL) 
+    {
         free_map2d(copy_map);
+    }
+    
+    if (game != NULL)
+        free_game(game);
+    
     exit(EXIT_FAILURE);
 }
 
@@ -54,7 +63,31 @@ void free_game(t_game *game)
     if (game)
     {
         if (game->map)
-            free_map2d(game->map);  // Liberar la matriz 2D
-        free(game);  // Liberar la estructura t_game
+            free_map2d(game->map);
+        free(game);  
     }
 }
+
+
+
+//Una funcion que tome como parametros size de la frase del error,
+// la cadena donde guardar el error
+//la instancia de la estructura 
+/*void	handle_error(char *str, int size, t_map *copy_map, t_game *game)
+{
+    if (game == 0)
+    {
+        write(2, str, size);
+        if(copy_map->matrix != NULL)
+            free_map2d(copy_map);
+        exit(EXIT_FAILURE);
+    }
+    else
+    {
+        write(2, str, size);
+        if (copy_map->matrix != NULL)
+            free_map2d(copy_map);
+        free(game);
+        exit(EXIT_FAILURE); 
+    }
+}*/

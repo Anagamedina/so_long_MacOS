@@ -34,6 +34,7 @@ static int	validate_path(char *argv)
 	return (0);
 }
 
+// static int	check_first_and_last_line(game->map)
 static int	check_first_and_last_line(t_map *copy_map)
 {
 	int	j;
@@ -42,14 +43,14 @@ static int	check_first_and_last_line(t_map *copy_map)
 	while (copy_map->matrix[0][j] != '\0')
 	{
 		if (copy_map->matrix[0][j] != '1')
-			handle_error(ERROR_WALLS, 31, copy_map);
+			handle_error(ERROR_WALLS, 30, copy_map, NULL);
 		j++;
 	}
 	j = 0;
 	while (copy_map->matrix[copy_map->rows - 1][j] != '\0')
 	{
 		if (copy_map->matrix[copy_map->rows - 1][j] != '1')
-			handle_error(ERROR_WALLS, 31, copy_map);	
+			handle_error(ERROR_WALLS, 30, copy_map, NULL);	
 		j++;
 	}
 	return (0);
@@ -64,14 +65,14 @@ static int 	check_laterals_map(t_map *copy_map)
 	{
 		if (copy_map->matrix[i][0] != '1' 
 			|| copy_map->matrix[i][copy_map->cols - 1] != '1')
-			handle_error(ERROR_WALLS, 31, copy_map);
+			handle_error(ERROR_WALLS, 27, copy_map, NULL);
 		i++;
 	}
 	i = 0;
 	while (i < copy_map->rows)
 	{
 		if (copy_map->matrix[i][copy_map->cols - 1] != '1')
-			handle_error(ERROR_WALLS, 31, copy_map);
+			handle_error(ERROR_WALLS, 27, copy_map, NULL);
 		i++;
 	}
 	return (0);

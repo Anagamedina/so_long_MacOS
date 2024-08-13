@@ -17,6 +17,7 @@
 int	main(int argc, char **argv)
 {
 	t_game	*game = NULL;
+	// t_map   *game = NULL;
 	//void	*mlx_ptr;
 	//void	*win_ptr;
 
@@ -32,7 +33,7 @@ int	main(int argc, char **argv)
         }
         free_game(game); 
 	}
-    //free_map2d(game->map);
+    //free_game(game);
     return(0);
 }
 

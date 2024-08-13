@@ -14,7 +14,7 @@
 #define ERROR_MACROS_H
 
 /*--------------------Error and free------------------*/
-#define ERROR_INVALID_MAP "error: Invalid map file"
+#define ERROR_INVALID_MAP "error: Invalid map file\n"
 #define ERROR_MEMORY_ALLOCATION "error: Memory allocation failed\n"
 #define ERROR_INVALID_ARG "Error\nInvalid argument.\n"
 #define ERROR_WALLS "Error\nInvalid walls in map.\n"
