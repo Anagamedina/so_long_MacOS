@@ -79,5 +79,7 @@ void      read_map(char *path, t_map *copy_map);
 void      validations_items(t_map *copy_map);
 void      free_game(t_game *game);
 void      free_map2d(t_map *copy_map);
+void      flood_fill(t_map *copy_map, int x, int y, int *ccoins);
+void	    validation_player(t_map *copy_map, int *ccoins);
 #endif // GAME_H
 

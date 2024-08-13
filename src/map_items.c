@@ -46,72 +46,55 @@ void validations_items(t_map *copy_map)
     printf("Coins: %d\n", copy_map->coins);
     printf("Exit: %d\n", copy_map->exit);
 
-    if (copy_map->coins > 1 || copy_map->exit != 1 || copy_map->players != 1)
+    if (copy_map->coins < 1 || copy_map->exit != 1 || copy_map->players != 1)
     {
         printf("Items no correctos\n");
         free_map2d(copy_map);
         exit(EXIT_FAILURE);
     }
     else
+    {
         printf("Items ok\n");
+    }
 }
 
-void    flood_fill(t_map *copy_map, int x, int y, int *ccoins, int *eexit)
+void    flood_fill(t_map *copy_map, int x, int y, int *ccoins)
 {
-    if (x < 0 || y < 0 || x >= copy_map->rows || y >= copy_map->cols)
+    if (x < 0 || y < 0 || x >= copy_map->cols || y >= copy_map->rows)
         return ;
-    if (copy_map->matrix[x][y] == '1' || copy_map->matrix[x][y] == 'V')
+    if (copy_map->matrix[y][x] == '1' || copy_map->matrix[y][x] == 'V')
         return ;
-    copy_map->matrix[x][y] = 'V';
-    if (copy_map->matrix[x][y] == 'C')
+    if (copy_map->matrix[y][x] == 'C')
         (*ccoins)++;
-    else if (copy_map->matrix[x][y] == 'E')
-        (*eexit)++;
+    copy_map->matrix[y][x] = 'V';
 
-    flood_fill(copy_map, x + 1, y, ccoins, eexit);
-    flood_fill(copy_map, y - 1, y, ccoins, eexit);
-    flood_fill(copy_map, x, y + 1, ccoins, eexit);
-    flood_fill(copy_map, x, y - 1, ccoins, eexit);
+    flood_fill(copy_map, x + 1, y, ccoins);
+    flood_fill(copy_map, y - 1, y, ccoins);
+    flood_fill(copy_map, x, y + 1, ccoins);
+    flood_fill(copy_map, x, y - 1, ccoins);
 
 }
 
-// void	check(t_game *game, t_game *copy)
-// {
-// 	if (game->coins != copy->ncoins || game->exit != copy->nexit)
-// 		ft_exit("Error, Ureachable c/e", 1, game, 1);
-// 	f_free(copy);
-// 	free(copy);
-// }
+void	validation_player(t_map *copy_map, int *ccoins)
+{
+    flood_fill(copy_map, 1, 1, ccoins);  //posicion 0,0 del player
+    printf(" VALIDATION PLAYER()\n");
+    printf("Coins del mapa originales: %d\n", copy_map->coins);
+    printf("Ccoins puntero: %d\n", *ccoins);
+    // printf("Exit: %d\n", copy_map->exit);
+	if (copy_map->coins == *ccoins)
+    {
+        printf("Flood fill completado\n");
+    }
+    else
+    {
+        printf("Error flood fill\n");
+        // free_map2d(copy_map);
+   }
+        //free(copy_map);
+        //exit(EXIT_FAILURE);
+}
 
-
-
-// static void	map_paths(t_so_long *sl, int y, int x)
-// {
-// 	if (sl->map[y][x] != '1' && sl->map[y][x] != 'o' \
-// 			&& sl->map[y][x] != 'c' && sl->map[y][x] != 'e' \
-// 			&& sl->map[y][x] != 'p')
-// 	{
-// 		if (sl->map[y][x] == 'P')
-// 			sl->map[y][x] = 'p';
-// 		else if (sl->map[y][x] == 'E')
-// 		{
-// 			sl->etmp++;
-// 			sl->map[y][x] = 'e';
-// 			return ;
-// 		}
-// 		else if (sl->map[y][x] == 'C')
-// 		{
-// 			sl->c_tmp1++;
-// 			sl->map[y][x] = 'c';
-// 		}
-// 		else
-// 			sl->map[y][x] = 'o';
-// 		map_paths(sl, y, x + 1);
-// 		map_paths(sl, y + 1, x);
-// 		map_paths(sl, y, x - 1);
-// 		map_paths(sl, y - 1, x);
-// 	}
-// }
 
 /*-----------------MAIN VALIDATOR-----------------*/
 
@@ -125,3 +108,5 @@ void    flood_fill(t_map *copy_map, int x, int y, int *ccoins, int *eexit)
 // 	if (sl->ecnt != sl->etmp)
 // 		handle_error(PRINT_ERR_12, 25, sl);
 // }
+
+

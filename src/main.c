@@ -17,6 +17,7 @@
 int	main(int argc, char **argv)
 {
 	t_game	*game = NULL;
+    int     ccoins = 0;
 	// t_map   *game = NULL;
 	//void	*mlx_ptr;
 	//void	*win_ptr;
@@ -30,6 +31,7 @@ int	main(int argc, char **argv)
         {
 		    map_format_border_check(argv[1], game->map);
             map_items(game->map);
+            validation_player(game->map, &ccoins);
         }
         free_game(game); 
 	}
