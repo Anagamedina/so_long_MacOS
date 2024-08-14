@@ -78,6 +78,9 @@ static int 	check_laterals_map(t_map *copy_map)
 	return (0);
 }
 
+
+/************************VALIDATION MAIN **************************/
+
 void	map_format_border_check(char *path, t_map *copy_map)
 {
 	if (validate_path(path) == 0)

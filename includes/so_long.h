@@ -47,7 +47,7 @@ typedef struct s_map
   int			  coins;       // Número de monedas en el mapa
   int			  exit;        // Número de salidas en el mapa
   int			  players;     // Número de jugadores en el mapa
-  t_position	player;   // Posición del jugador
+  t_position	player_pos;   // Posición del jugador
 }			t_map;
 
 /********Estructura principal del juego****/
@@ -57,7 +57,7 @@ typedef struct s_game
   // void			*win_ptr;            // Puntero a la ventana del juego
   // int			  movements;           // Contador de movimientos
   // int			  player_sprite;       // Identificador del sprite del jugador
-  t_map			*map;                 // Información del mapa
+  t_map			  *map;                 // Información del mapa
   //t_bool		map_alloc;           // Bandera para verificar si el mapa ha sido alocado
   // t_image		wall;                // Imagen para las paredes
   // t_image		floor;               // Imagen para el suelo
@@ -70,16 +70,19 @@ typedef struct s_game
   // t_image		player_back;         // Imagen del jugador mirando hacia atrás
 }			t_game;
 
-void	    map_format_border_check(char *path, t_map *copy_map);
 t_game		*init_game(void);
-void	    handle_error(char *str, int size, t_map *copy_map, t_game *game);
-void	    handle_exit(char *str, int size);
+void	    map_format_border_check(char *path, t_map *copy_map);
 void      map_items(t_map *copy_map);
 void      read_map(char *path, t_map *copy_map);
-void      validations_items(t_map *copy_map);
+//void      validations_items(t_map *copy_map);
+//void      flood_fill(t_map *copy_map, int x, int y, int *ccoins);
+//void	    validation_player(t_map *copy_map, int *ccoins);
+void	    validation_player(t_map *copy_map, int *ccoins, int next_x, int next_y);
+
+/********HANDLE ERROR AND FREE ****/
+void	    handle_error(char *str, int size, t_map *copy_map, t_game *game);
+void	    handle_exit(char *str, int size);
 void      free_game(t_game *game);
 void      free_map2d(t_map *copy_map);
-void      flood_fill(t_map *copy_map, int x, int y, int *ccoins);
-void	    validation_player(t_map *copy_map, int *ccoins);
 #endif // GAME_H
 
