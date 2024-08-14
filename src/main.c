@@ -30,7 +30,7 @@ int	main(int argc, char **argv)
         {
 		    map_format_border_check(argv[1], game->map);
             map_items(game->map);
-            validation_player(game->map, &ccoins, next_x, next_y);
+            validation_player(game->map, &ccoins);
         }
         free_game(game); 
 	}

@@ -10,6 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../includes/so_long.h"
 
 static void    players_init_pos(t_map *copy_map)
 {
@@ -34,11 +35,12 @@ static void    players_init_pos(t_map *copy_map)
     }
 }
 
-static void    go_exit(t_map *copy_map, int *ccoins)
+static int    go_exit(t_map *copy_map, int *ccoins)
 {
     if (copy_map->coins == *ccoins)
     {
-        printf("Puedes acceder a exit \n");
+        printf("Puedes acceder a exit,game over: %d\n", copy_map->coins - *ccoins);
+        return(0);
         // free_map2d(copy_map);
         // exit(EXIT_FAILURE);
     }
@@ -47,6 +49,7 @@ static void    go_exit(t_map *copy_map, int *ccoins)
         printf("Te quedan coins por atrapar, no puedes ir a exit\n");
         // free_map2d(copy_map);
         // exit(EXIT_FAILURE);
+        return (1);
     }
 
 }
@@ -59,8 +62,15 @@ static void    flood_fill(t_map *copy_map, int x, int y, int *ccoins)
         return ;
     if (copy_map->matrix[y][x] == 'C')
         (*ccoins)++;
-    // if (copy_map->matrix[y][x] == 'E')
-    //     go_exit(copy_map, &ccoins);
+    if (copy_map->matrix[y][x] == 'E')
+    {
+        if (go_exit(copy_map, ccoins) == 0)
+        {
+            printf("GAME OVER: ccoins puntero: %d\n", *ccoins);
+        }
+        return;
+    }
+ 
     copy_map->matrix[y][x] = 'V';
 
     flood_fill(copy_map, x + 1, y, ccoins);
@@ -74,18 +84,22 @@ static void    flood_fill(t_map *copy_map, int x, int y, int *ccoins)
 
 /************************VALIDATION MAIN **************************/
 
-void	validation_player(t_map *copy_map, int *ccoins, int next_x, int next_y)
+void	validation_player(t_map *copy_map, int *ccoins)
 {
+    players_init_pos(copy_map);
     flood_fill(copy_map, copy_map->player_pos.x, \
-                     copy_map->player_pos.y, 1, ccoins); 
+                     copy_map->player_pos.y,ccoins); 
 
-    printf(" VALIDATION PLAYER()\n");
-    printf("Coins del mapa originales: %d\n", copy_map->coins);
-    printf("ccoins puntero: %d\n", *ccoins);
-    // printf("Exit: %d\n", copy_map->exit);
-    if (copy_map->matrix[next_y][next_x] == 'E')
+    if(copy_map->matrix[copy_map->player_pos.y][copy_map->player_pos.x] == 'E') 
     {
-        go_exit(copy_map, ccoins);
+        if (go_exit(copy_map, ccoins) == 0)
+            printf("GAME OVER: ccoins puntero: %d\n", *ccoins);
+        else
+            printf("Sigue jugando\n");
 
     }
 }
+
+// printf(" VALIDATION PLAYER()\n");
+//     printf("Coins del mapa originales: %d\n", copy_map->coins);
+//     printf("ccoins puntero: %d\n", *ccoins);

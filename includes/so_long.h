@@ -77,7 +77,8 @@ void      read_map(char *path, t_map *copy_map);
 //void      validations_items(t_map *copy_map);
 //void      flood_fill(t_map *copy_map, int x, int y, int *ccoins);
 //void	    validation_player(t_map *copy_map, int *ccoins);
-void	    validation_player(t_map *copy_map, int *ccoins, int next_x, int next_y);
+void      validation_player(t_map *copy_map, int *ccoins);
+
 
 /********HANDLE ERROR AND FREE ****/
 void	    handle_error(char *str, int size, t_map *copy_map, t_game *game);

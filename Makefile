@@ -31,7 +31,8 @@ SRC =	$(SRC_DIR)/main.c \
 		$(SRC_DIR)/map_items.c \
 		$(SRC_DIR)/map_init.c \
 		$(SRC_DIR)/init_structs.c \
-		$(SRC_DIR)/handle_errors.c
+		$(SRC_DIR)/handle_errors.c \
+		$(SRC_DIR)/init_players.c
 
 
 OBJ = $(SRC:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
