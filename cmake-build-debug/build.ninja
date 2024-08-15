@@ -55,12 +55,6 @@ build CMakeFiles/so_long_anaa.dir/src/main.c.o: C_COMPILER__so_long_anaa_unscann
   OBJECT_DIR = CMakeFiles/so_long_anaa.dir
   OBJECT_FILE_DIR = CMakeFiles/so_long_anaa.dir/src
 
-build CMakeFiles/so_long_anaa.dir/src/map.extension.c.o: C_COMPILER__so_long_anaa_unscanned_Debug /Users/catalinaburgos/Documents/42/so_long_ana/src/map.extension.c || cmake_object_order_depends_target_so_long_anaa
-  DEP_FILE = CMakeFiles/so_long_anaa.dir/src/map.extension.c.o.d
-  FLAGS = -g -std=gnu11 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk -fcolor-diagnostics
-  OBJECT_DIR = CMakeFiles/so_long_anaa.dir
-  OBJECT_FILE_DIR = CMakeFiles/so_long_anaa.dir/src
-
 build CMakeFiles/so_long_anaa.dir/src/map_init.c.o: C_COMPILER__so_long_anaa_unscanned_Debug /Users/catalinaburgos/Documents/42/so_long_ana/src/map_init.c || cmake_object_order_depends_target_so_long_anaa
   DEP_FILE = CMakeFiles/so_long_anaa.dir/src/map_init.c.o.d
   FLAGS = -g -std=gnu11 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk -fcolor-diagnostics
@@ -103,6 +97,30 @@ build CMakeFiles/so_long_anaa.dir/src/handle_errors.c.o: C_COMPILER__so_long_ana
   OBJECT_DIR = CMakeFiles/so_long_anaa.dir
   OBJECT_FILE_DIR = CMakeFiles/so_long_anaa.dir/src
 
+build CMakeFiles/so_long_anaa.dir/src/init_players.c.o: C_COMPILER__so_long_anaa_unscanned_Debug /Users/catalinaburgos/Documents/42/so_long_ana/src/init_players.c || cmake_object_order_depends_target_so_long_anaa
+  DEP_FILE = CMakeFiles/so_long_anaa.dir/src/init_players.c.o.d
+  FLAGS = -g -std=gnu11 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk -fcolor-diagnostics
+  OBJECT_DIR = CMakeFiles/so_long_anaa.dir
+  OBJECT_FILE_DIR = CMakeFiles/so_long_anaa.dir/src
+
+build CMakeFiles/so_long_anaa.dir/src/map_extensions.c.o: C_COMPILER__so_long_anaa_unscanned_Debug /Users/catalinaburgos/Documents/42/so_long_ana/src/map_extensions.c || cmake_object_order_depends_target_so_long_anaa
+  DEP_FILE = CMakeFiles/so_long_anaa.dir/src/map_extensions.c.o.d
+  FLAGS = -g -std=gnu11 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk -fcolor-diagnostics
+  OBJECT_DIR = CMakeFiles/so_long_anaa.dir
+  OBJECT_FILE_DIR = CMakeFiles/so_long_anaa.dir/src
+
+build CMakeFiles/so_long_anaa.dir/src/map_items.c.o: C_COMPILER__so_long_anaa_unscanned_Debug /Users/catalinaburgos/Documents/42/so_long_ana/src/map_items.c || cmake_object_order_depends_target_so_long_anaa
+  DEP_FILE = CMakeFiles/so_long_anaa.dir/src/map_items.c.o.d
+  FLAGS = -g -std=gnu11 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk -fcolor-diagnostics
+  OBJECT_DIR = CMakeFiles/so_long_anaa.dir
+  OBJECT_FILE_DIR = CMakeFiles/so_long_anaa.dir/src
+
+build CMakeFiles/so_long_anaa.dir/src/game.c.o: C_COMPILER__so_long_anaa_unscanned_Debug /Users/catalinaburgos/Documents/42/so_long_ana/src/game.c || cmake_object_order_depends_target_so_long_anaa
+  DEP_FILE = CMakeFiles/so_long_anaa.dir/src/game.c.o.d
+  FLAGS = -g -std=gnu11 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk -fcolor-diagnostics
+  OBJECT_DIR = CMakeFiles/so_long_anaa.dir
+  OBJECT_FILE_DIR = CMakeFiles/so_long_anaa.dir/src
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target so_long_anaa
@@ -111,7 +129,7 @@ build CMakeFiles/so_long_anaa.dir/src/handle_errors.c.o: C_COMPILER__so_long_ana
 #############################################
 # Link the executable so_long_anaa
 
-build so_long_anaa: C_EXECUTABLE_LINKER__so_long_anaa_Debug CMakeFiles/so_long_anaa.dir/src/main.c.o CMakeFiles/so_long_anaa.dir/src/map.extension.c.o CMakeFiles/so_long_anaa.dir/src/map_init.c.o CMakeFiles/so_long_anaa.dir/libft/ft_strlen.c.o CMakeFiles/so_long_anaa.dir/libft/ft_split.c.o CMakeFiles/so_long_anaa.dir/libft/ft_calloc.c.o CMakeFiles/so_long_anaa.dir/libft/ft_bzero.c.o CMakeFiles/so_long_anaa.dir/src/init_structs.c.o CMakeFiles/so_long_anaa.dir/src/handle_errors.c.o
+build so_long_anaa: C_EXECUTABLE_LINKER__so_long_anaa_Debug CMakeFiles/so_long_anaa.dir/src/main.c.o CMakeFiles/so_long_anaa.dir/src/map_init.c.o CMakeFiles/so_long_anaa.dir/libft/ft_strlen.c.o CMakeFiles/so_long_anaa.dir/libft/ft_split.c.o CMakeFiles/so_long_anaa.dir/libft/ft_calloc.c.o CMakeFiles/so_long_anaa.dir/libft/ft_bzero.c.o CMakeFiles/so_long_anaa.dir/src/init_structs.c.o CMakeFiles/so_long_anaa.dir/src/handle_errors.c.o CMakeFiles/so_long_anaa.dir/src/init_players.c.o CMakeFiles/so_long_anaa.dir/src/map_extensions.c.o CMakeFiles/so_long_anaa.dir/src/map_items.c.o CMakeFiles/so_long_anaa.dir/src/game.c.o
   FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk
   OBJECT_DIR = CMakeFiles/so_long_anaa.dir
   POST_BUILD = :

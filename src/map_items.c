@@ -6,7 +6,7 @@
 /*   By: anamedin <anamedin@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 21:46:21 by anamedin          #+#    #+#             */
-/*   Updated: 2024/08/11 21:46:27 by anamedin         ###   ########.fr       */
+/*   Updated: 2024/08/15 14:05:10 by anamedin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ void    map_items(t_map *copy_map)
     int i;
 
     i = 1;
-    j = 1;
     while (i < copy_map->rows - 1)
     {
         j = 1;

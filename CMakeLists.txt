@@ -5,7 +5,6 @@ set(CMAKE_C_STANDARD 11)
 
 add_executable(so_long_anaa
         src/main.c
-        src/map.extension.c
         src/map_init.c
         includes/so_long.h
         libft/libft.h
@@ -15,6 +14,10 @@ add_executable(so_long_anaa
         libft/ft_bzero.c
         src/init_structs.c
         src/handle_errors.c
-        src/handle_errors.c
+        src/init_players.c
         includes/macros.h
+        src/map_extensions.c
+        src/map_extensions.c
+        src/map_items.c
+        src/game.c
 )

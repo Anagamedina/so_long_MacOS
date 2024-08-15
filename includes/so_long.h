@@ -6,7 +6,7 @@
 /*   By: anamedin <anamedin@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 16:26:31 by anamedin          #+#    #+#             */
-/*   Updated: 2024/08/11 16:49:24 by anamedin         ###   ########.fr       */
+/*   Updated: 2024/08/15 08:10:53 by anamedin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,12 +42,13 @@ typedef struct s_image
 typedef struct s_map
 {
   char			**matrix;       // Mapa representado como una matriz de cadenas
-  int			  rows;        // Número de filas en el mapa
-  int			  cols;     // Número de columnas en el mapa
-  int			  coins;       // Número de monedas en el mapa
-  int			  exit;        // Número de salidas en el mapa
-  int			  players;     // Número de jugadores en el mapa
-  t_position	player_pos;   // Posición del jugador
+  int			rows;        // Número de filas en el mapa
+  int			cols;     // Número de columnas en el mapa
+  int			coins;       // Número de monedas en el mapa
+  int			exit;        // Número de salidas en el mapa
+  int			players;     // Número de jugadores en el mapa
+  t_position	player_pos;
+  t_position 	exit_pos; // Posición del jugado exitr
 }			t_map;
 
 /********Estructura principal del juego****/
