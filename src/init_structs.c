@@ -6,7 +6,7 @@
 /*   By: anamedin <anamedin@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 14:07:52 by anamedin          #+#    #+#             */
-/*   Updated: 2024/08/11 14:07:57 by anamedin         ###   ########.fr       */
+/*   Updated: 2024/08/15 22:40:21 by anamedin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,30 +17,24 @@
 t_game	*init_game(void)
 {
 	t_game	*game;
-	t_map	*copy_map = NULL;
+	t_map	*map;
 
- 	game = (t_game *) malloc(sizeof(t_game));
-   	if (!game)
-    {
+	map = NULL;
+	game = (t_game *)malloc(sizeof(t_game));
+	if (!game)
 		return (NULL);
-    }
-
-    // Asignar memoria para 'copy_map'
-    copy_map = (t_map *)malloc(sizeof(t_map));
-    if (!copy_map)
-    {
-		//free(game);  // Liberar la memoria de 'game' en caso de error
-    	return (NULL);
-    } 
-	copy_map->matrix = NULL;
-	copy_map->rows = 0;
-	copy_map->cols = 0;
-	copy_map->coins = 0;
-	copy_map->exit = 0;
-	copy_map->players = 0;
-	copy_map->player_pos.x = 0; // como tendo que iniciarlo con -1 o 0?
-	copy_map->player_pos.y = 0; // como tendo que iniciarlo con -1 o 0?
-	game->map = copy_map;
+	map = (t_map *)malloc(sizeof(t_map));
+	if (!map)
+		return (NULL);
+	map->matrix = NULL;
+	map->rows = 0;
+	map->cols = 0;
+	map->coins = 0;
+	map->exit = 0;
+	map->players = 0;
+	map->player_pos.x = 0;
+	map->player_pos.y = 0;
+	game->map = map;
 	return (game);
 }
 

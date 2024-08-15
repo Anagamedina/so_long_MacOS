@@ -6,7 +6,7 @@
 /*   By: anamedin <anamedin@student.42barcelona.c>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/09 21:36:41 by anamedin          #+#    #+#             */
-/*   Updated: 2024/08/14 22:21:57 by anamedin         ###   ########.fr       */
+/*   Updated: 2024/08/15 22:59:44 by anamedin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ static int	ft_open_map(char *path)
 	fd = open(path, O_RDONLY);
 	if (fd < 0)
 		handle_exit(ERROR_OPEN_FILE, 26);
-	
 	return (fd);
 }
 
@@ -33,12 +32,12 @@ static char	*read_file(char *path)
 
 	fd = ft_open_map(path);
 	i = 0;
-	while ((bytes_read = read(fd, &buffer, 1)) > 0)
+	while((bytes_read = read(fd, &buffer, 1)) > 0)
 		i++;
 	close (fd);
 
 	if (i == 0)
-		handle_exit(ERROR_OPEN_FILE, 26);	
+		handle_exit(ERROR_OPEN_FILE, 26);
 	map1d = (char *)malloc(i + 1);
 	if (!map1d)
 	{
@@ -67,7 +66,7 @@ static char	*read_file(char *path)
 
 /************************PRINCIPAL **************************/
 
-void	read_map(char *path, t_map *copy_map)
+void	read_map(char *path, t_map *map)
 {
 	char	*map1d;
 	int		i;
@@ -75,26 +74,26 @@ void	read_map(char *path, t_map *copy_map)
 
 	map1d = read_file(path);
 	if (map1d == NULL)
-	 	return ;
-	copy_map->matrix = ft_split(map1d, '\n');
+		return ;
+	map->matrix = ft_split(map1d, '\n');
 	free(map1d);
 
-	if (copy_map->matrix == NULL)
+	if (map->matrix == NULL)
 		handle_exit(ERROR_MEMORY, 35);
 
 	i = 0;
-	while (copy_map->matrix[i] != NULL)
+	while (map->matrix[i] != NULL)
 		i++;
-	copy_map->rows = i;
+	map->rows = i;
 
-	line = (int) ft_strlen(copy_map->matrix[0]);
-	copy_map->cols = line;
+	line = (int) ft_strlen(map->matrix[0]);
+	map->cols = line;
 	i = 0;
-	while (copy_map->matrix[i] != NULL)
+	while (map->matrix[i] != NULL)
 	{
-		line = (int) ft_strlen(copy_map->matrix[i]);
-		if (copy_map->cols != line)
-			handle_error(ERROR_INVALID_MAP, 23, copy_map, NULL);	
+		line = (int) ft_strlen(map->matrix[i]);
+		if (map->cols != line)
+			handle_error(ERROR_INVALID_MAP, 23, map, NULL);
 		i++;
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: anamedin <anamedin@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 16:25:47 by anamedin          #+#    #+#             */
-/*   Updated: 2024/08/14 22:21:57 by anamedin         ###   ########.fr       */
+/*   Updated: 2024/08/15 22:50:21 by anamedin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,44 +35,44 @@ static int	validate_path(char *argv)
 }
 
 // static int	check_first_and_last_line(game->map)
-static int	check_first_and_last_line(t_map *copy_map)
+static int	check_first_and_last_line(t_map *map)
 {
 	int	j;
 
 	j = 0;
-	while (copy_map->matrix[0][j] != '\0')
+	while (map->matrix[0][j] != '\0')
 	{
-		if (copy_map->matrix[0][j] != '1')
-			handle_error(ERROR_WALLS, 30, copy_map, NULL);
+		if (map->matrix[0][j] != '1')
+			handle_error(ERROR_WALLS, 30, map, NULL);
 		j++;
 	}
 	j = 0;
-	while (copy_map->matrix[copy_map->rows - 1][j] != '\0')
+	while (map->matrix[map->rows - 1][j] != '\0')
 	{
-		if (copy_map->matrix[copy_map->rows - 1][j] != '1')
-			handle_error(ERROR_WALLS, 30, copy_map, NULL);	
+		if (map->matrix[map->rows - 1][j] != '1')
+			handle_error(ERROR_WALLS, 30, map, NULL);
 		j++;
 	}
 	return (0);
 }
 
-static int 	check_laterals_map(t_map *copy_map)
+static int	check_laterals_map(t_map *map)
 {
 	int	i;
 
 	i = 0;
-	while (i < copy_map->rows)
+	while (i < map->rows)
 	{
-		if (copy_map->matrix[i][0] != '1' 
-			|| copy_map->matrix[i][copy_map->cols - 1] != '1')
-			handle_error(ERROR_WALLS, 27, copy_map, NULL);
+		if (map->matrix[i][0] != '1'
+			|| map->matrix[i][map->cols - 1] != '1')
+			handle_error(ERROR_WALLS, 27, map, NULL);
 		i++;
 	}
 	i = 0;
-	while (i < copy_map->rows)
+	while (i < map->rows)
 	{
-		if (copy_map->matrix[i][copy_map->cols - 1] != '1')
-			handle_error(ERROR_WALLS, 27, copy_map, NULL);
+		if (map->matrix[i][map->cols - 1] != '1')
+			handle_error(ERROR_WALLS, 27, map, NULL);
 		i++;
 	}
 	return (0);
@@ -81,13 +81,13 @@ static int 	check_laterals_map(t_map *copy_map)
 
 /************************VALIDATION MAIN **************************/
 
-void	map_format_border_check(char *path, t_map *copy_map)
+void	map_format_border_check(char *path, t_map *map)
 {
 	if (validate_path(path) == 0)
 	{
 		printf("file is valid\n");
-		read_map(path, copy_map);
-		if (check_first_and_last_line(copy_map) && check_laterals_map(copy_map))
+		read_map(path, map);
+		if (check_first_and_last_line(map) && check_laterals_map(map))
 			printf("validacion mapa paredes correctas\n");
 	}
 	else

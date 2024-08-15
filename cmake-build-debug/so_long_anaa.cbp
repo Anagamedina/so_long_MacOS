@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="so_long_anaa"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/daruuu/CLionProjects/so_long/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/home/daruuu/CLionProjects/so_long/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/home/daruuu/CLionProjects/so_long/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/home/daruuu/CLionProjects/so_long/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/home/daruuu/CLionProjects/so_long/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="so_long_anaa">
+				<Option output="/home/daruuu/CLionProjects/so_long/cmake-build-debug/so_long_anaa" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/daruuu/CLionProjects/so_long/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/11/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/home/daruuu/CLionProjects/so_long/cmake-build-debug/Makefile&quot;  VERBOSE=1 so_long_anaa"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/home/daruuu/CLionProjects/so_long/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/home/daruuu/CLionProjects/so_long/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/home/daruuu/CLionProjects/so_long/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="so_long_anaa/fast">
+				<Option output="/home/daruuu/CLionProjects/so_long/cmake-build-debug/so_long_anaa" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/daruuu/CLionProjects/so_long/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/11/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/home/daruuu/CLionProjects/so_long/cmake-build-debug/Makefile&quot;  VERBOSE=1 so_long_anaa/fast"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/home/daruuu/CLionProjects/so_long/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/home/daruuu/CLionProjects/so_long/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/home/daruuu/CLionProjects/so_long/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/daruuu/CLionProjects/so_long/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/home/daruuu/CLionProjects/so_long/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/home/daruuu/CLionProjects/so_long/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/home/daruuu/CLionProjects/so_long/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/home/daruuu/CLionProjects/so_long/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/daruuu/CLionProjects/so_long/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/home/daruuu/CLionProjects/so_long/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/home/daruuu/CLionProjects/so_long/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/home/daruuu/CLionProjects/so_long/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/home/daruuu/CLionProjects/so_long/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/daruuu/CLionProjects/so_long/includes/macros.h">
+			<Option target="so_long_anaa"/>
+		</Unit>
+		<Unit filename="/home/daruuu/CLionProjects/so_long/includes/so_long.h">
+			<Option target="so_long_anaa"/>
+		</Unit>
+		<Unit filename="/home/daruuu/CLionProjects/so_long/libft/ft_bzero.c">
+			<Option target="so_long_anaa"/>
+		</Unit>
+		<Unit filename="/home/daruuu/CLionProjects/so_long/libft/ft_calloc.c">
+			<Option target="so_long_anaa"/>
+		</Unit>
+		<Unit filename="/home/daruuu/CLionProjects/so_long/libft/ft_split.c">
+			<Option target="so_long_anaa"/>
+		</Unit>
+		<Unit filename="/home/daruuu/CLionProjects/so_long/libft/ft_strlen.c">
+			<Option target="so_long_anaa"/>
+		</Unit>
+		<Unit filename="/home/daruuu/CLionProjects/so_long/libft/libft.h">
+			<Option target="so_long_anaa"/>
+		</Unit>
+		<Unit filename="/home/daruuu/CLionProjects/so_long/src/game.c">
+			<Option target="so_long_anaa"/>
+		</Unit>
+		<Unit filename="/home/daruuu/CLionProjects/so_long/src/handle_errors.c">
+			<Option target="so_long_anaa"/>
+		</Unit>
+		<Unit filename="/home/daruuu/CLionProjects/so_long/src/init_players.c">
+			<Option target="so_long_anaa"/>
+		</Unit>
+		<Unit filename="/home/daruuu/CLionProjects/so_long/src/init_structs.c">
+			<Option target="so_long_anaa"/>
+		</Unit>
+		<Unit filename="/home/daruuu/CLionProjects/so_long/src/main.c">
+			<Option target="so_long_anaa"/>
+		</Unit>
+		<Unit filename="/home/daruuu/CLionProjects/so_long/src/map_extensions.c">
+			<Option target="so_long_anaa"/>
+		</Unit>
+		<Unit filename="/home/daruuu/CLionProjects/so_long/src/map_init.c">
+			<Option target="so_long_anaa"/>
+		</Unit>
+		<Unit filename="/home/daruuu/CLionProjects/so_long/src/map_items.c">
+			<Option target="so_long_anaa"/>
+		</Unit>
+		<Unit filename="/home/daruuu/CLionProjects/so_long/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

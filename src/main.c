@@ -6,7 +6,7 @@
 /*   By: anamedin <anamedin@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 14:31:54 by anamedin          #+#    #+#             */
-/*   Updated: 2024/08/14 22:21:57 by anamedin         ###   ########.fr       */
+/*   Updated: 2024/08/15 22:45:53 by anamedin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,26 +16,26 @@
 
 int	main(int argc, char **argv)
 {
-	t_game	*game = NULL;
-    int     ccoins = 0;
+	t_game	*game;
+    int		ccoins;
 	//void	*mlx_ptr;
 	//void	*win_ptr;
-
+	game = NULL;
+	ccoins = 0;
 	if (argc != 2)
-        handle_exit(ERROR_INVALID_ARG, 28);	
+		handle_exit(ERROR_INVALID_ARG, 28);
 	else
 	{
 		game = init_game();
-        if (game != NULL)
-        {
-		    map_format_border_check(argv[1], game->map);
-            map_items(game->map);
-            validation_player(game->map, &ccoins);
-        }
-        free_game(game); 
+		if (game != NULL)
+		{
+			map_format_border_check(argv[1], game->map);
+			map_items(game->map);
+			validation_player(&ccoins, game->map);
+		}
+		free_game(game);
 	}
-    //free_game(game);
-    return(0);
+	return (0);
 }
 
     /*mlx_ptr = mlx_init();
