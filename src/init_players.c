@@ -6,7 +6,7 @@
 /*   By: anamedin <anamedin@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/14 16:13:35 by anamedin          #+#    #+#             */
-/*   Updated: 2024/08/15 22:43:17 by anamedin         ###   ########.fr       */
+/*   Updated: 2024/08/15 23:45:32 by anamedin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,8 +86,38 @@ static void	flood_fill(t_map *map, int x, int y, int *ccoins)
 
 void	validation_player(int *ccoins, t_map *map)
 {
+	t_map	copy_map;
+	int		i;
+	int		j;
+
+	copy_map.matrix = malloc(sizeof (char *) * map->rows);
+	if (!copy_map.matrix)
+		return ;
+	j = 0;
+	while (j < map->rows)
+	{
+		copy_map.matrix[j] = malloc(sizeof(char) * map->cols);
+		if (!copy_map.matrix[j])
+		{
+			// Liberar cualquier memoria ya asignada en caso de error.
+			for (i = 0; i < j; i++)
+				free(copy_map.matrix[i]);
+			free(copy_map.matrix);
+			return;
+		}
+		i = 0;
+		while (i < map->cols)
+		{
+			copy_map.matrix[j][i] = map->matrix[j][i];
+			i++;
+		}
+		j++;
+	}
+	copy_map.rows = map->rows;
+	copy_map.cols = map->cols;
 	players_init_pos(map);
-	flood_fill(map, map->player_pos.x, map->player_pos.y, ccoins);
+
+	flood_fill(&copy_map, map->player_pos.x, map->player_pos.y, ccoins);
 
 	if (*ccoins == map->coins && \
 		map->matrix[map->exit_pos.y][map->exit_pos.x] == 'V')
