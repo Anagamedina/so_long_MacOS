@@ -67,16 +67,7 @@ static void	copy_map_matrix(t_map *copy_map, t_map *map)
 	{
 		copy_map->matrix[j] = malloc(sizeof(char) * map->cols);
 		if (!copy_map->matrix[j])
-		{
-			i = 0;
-			while (i < j)
-			{
-				free(copy_map->matrix[i]);
-				i++;
-			}
-			free(copy_map->matrix);
-			return ;
-		}
+			free_map2d(copy_map);		
 		i = 0;
 		while (i < map->cols)
 		{
@@ -102,7 +93,8 @@ void	validation_player(int *ccoins, t_map *map)
 		map->matrix[map->exit_pos.y][map->exit_pos.x] == 'V')
 	{
 		printf("¡CCOINS OKAY y SALIDA OKAY\n");
+		//free_map2d(&copy_map);
 	}
 	else
-		printf("IMCOMPLETE COINS: OR INACCESIBLE EXIT\n :");
+		handle_error(ERROR_COINS_EXIT, 13, map, NULL);
 }

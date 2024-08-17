@@ -18,11 +18,7 @@ static void	validations_items(t_map *copy_map)
 	printf("Coins: %d\n", copy_map->coins);
 	printf("Exit: %d\n", copy_map->exit);
 	if (copy_map->coins < 1 || copy_map->exit != 1 || copy_map->players != 1)
-	{
-		printf("Items no correctos\n");
-		free_map2d(copy_map);
-		exit(EXIT_FAILURE);
-	}
+		handle_error(ERROR_ITEMS, 20, copy_map, NULL);
 	else
 	{
 		printf("Items ok\n");

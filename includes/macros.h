@@ -18,6 +18,8 @@
 #define ERROR_MEMORY_ALLOCATION "error: Memory allocation failed\n"
 #define ERROR_INVALID_ARG "Error\nInvalid argument.\n"
 #define ERROR_WALLS "Error\nInvalid walls in map.\n"
+#define ERROR_COINS_EXIT "Error\nInvalid game\n"
+#define ERROR_ITEMS "Error\nInvalid items\n"
 
 /*--------------------Error and exit------------------*/
 #define ERROR_OPEN_FILE "Error\nFailure to open arg-file.\n"
