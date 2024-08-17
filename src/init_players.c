@@ -6,7 +6,7 @@
 /*   By: anamedin <anamedin@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/14 16:13:35 by anamedin          #+#    #+#             */
-/*   Updated: 2024/08/17 12:23:15 by anamedin         ###   ########.fr       */
+/*   Updated: 2024/08/17 13:39:20 by anamedin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,11 @@ static void	players_init_pos(t_map *map)
 			{
 				map->player_pos.y = y;
 				map->player_pos.x = x;
-				printf("Players INIT: (%d, %d)\n", map->player_pos.y, map->player_pos.x);
 			}
 			if (map->matrix[y][x] == 'E')
 			{
 				map->exit_pos.y = y;
 				map->exit_pos.x = x;
-				printf("Exit INIT: (%d, %d)\n", map->exit_pos.y, map->exit_pos.x);
 			}
 			x++;
 		}
@@ -129,15 +127,15 @@ void	validation_player(int *ccoins, t_map *map)
 	print_map(&map->matrix);
 	copy_map_matrix(&copy_map, &map->matrix);
 	flood_fill(&copy_map, map->player_pos.y, map->player_pos.x, ccoins);
-	printf("Players final: (%d, %d)\n", map->player_pos.y, map->player_pos.x);
-	printf("Exit final: (%d, %d)\n", map->exit_pos.y, map->exit_pos.x);
 
 	if (*ccoins == map->coins || \
 		map->matrix[map->exit_pos.y][map->exit_pos.x] == 'V')
 	{
 		printf("¡CCOINS OKAY y SALIDA OKAY\n");
+		//free_map2d(copy_map.matrix);
+
 	}
 	else
-		printf("IMCOMPLETE COINS %d: OR INACCESIBLE EXIT\n (%d, %d):", *ccoins, map->exit_pos.y, map->exit_pos.x)
-		;
+		printf("IMCOMPLETE COINS: OR INACCESIBLE EXIT\n :");
+
 }

@@ -6,7 +6,7 @@
 /*   By: anamedin <anamedin@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 16:25:47 by anamedin          #+#    #+#             */
-/*   Updated: 2024/08/15 22:50:21 by anamedin         ###   ########.fr       */
+/*   Updated: 2024/08/17 13:40:08 by anamedin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,14 +43,14 @@ static int	check_first_and_last_line(t_map *map)
 	while (map->matrix[0][j] != '\0')
 	{
 		if (map->matrix[0][j] != '1')
-			handle_error(ERROR_WALLS, 30, map, NULL);
+			handle_error(ERROR_WALLS, 27, map, NULL);
 		j++;
 	}
 	j = 0;
 	while (map->matrix[map->rows - 1][j] != '\0')
 	{
 		if (map->matrix[map->rows - 1][j] != '1')
-			handle_error(ERROR_WALLS, 30, map, NULL);
+			handle_error(ERROR_WALLS, 27, map, NULL);
 		j++;
 	}
 	return (0);
@@ -87,7 +87,7 @@ void	map_format_border_check(char *path, t_map *map)
 	{
 		printf("file is valid\n");
 		read_map(path, map);
-		if (check_first_and_last_line(map) && check_laterals_map(map))
+		if (check_first_and_last_line(map) || check_laterals_map(map))
 			printf("validacion mapa paredes correctas\n");
 	}
 	else
