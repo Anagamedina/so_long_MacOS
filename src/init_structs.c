@@ -6,7 +6,7 @@
 /*   By: anamedin <anamedin@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 14:07:52 by anamedin          #+#    #+#             */
-/*   Updated: 2024/08/15 22:40:21 by anamedin         ###   ########.fr       */
+/*   Updated: 2024/08/17 11:30:14 by anamedin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,11 @@ t_game	*init_game(void)
 	map->coins = 0;
 	map->exit = 0;
 	map->players = 0;
-	map->player_pos.x = 0;
-	map->player_pos.y = 0;
+	map->player_pos.x = -1;
+	map->player_pos.y = -1;
+	map->exit_pos.x = -1;
+	map->exit_pos.y = -1;
+
 	game->map = map;
 	return (game);
 }
