@@ -17,7 +17,6 @@ add_executable(so_long_anaa
         src/init_players.c
         includes/macros.h
         src/map_extensions.c
-        src/map_extensions.c
         src/map_items.c
         src/game.c
 )
