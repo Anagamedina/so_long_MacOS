@@ -18,6 +18,7 @@ t_game	*init_game(void)
 {
 	t_game	*game;
 	t_map	*map;
+	t_data	*image;
 
 	map = NULL;
 	game = (t_game *)malloc(sizeof(t_game));
@@ -26,6 +27,11 @@ t_game	*init_game(void)
 	map = (t_map *)malloc(sizeof(t_map));
 	if (!map)
 		return (NULL);
+	image = (t_data *)malloc(sizeof(t_data));
+	if (!image)
+	{
+		return  (NULL);
+	}
 	map->matrix = NULL;
 	map->rows = 0;
 	map->cols = 0;
@@ -37,7 +43,16 @@ t_game	*init_game(void)
 	map->exit_pos.x = -1;
 	map->exit_pos.y = -1;
 
+	image->img = NULL;
+    image->addr = NULL;
+    image->bits_per_pixel = 0;
+    image->line_length = 0;
+    image->endian = 0;
+    image->x = 0;
+    image->y = 0;
+
 	game->map = map;
+	game->image = image;
 	return (game);
 }
 

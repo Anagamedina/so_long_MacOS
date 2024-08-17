@@ -31,12 +31,16 @@ typedef struct s_position
 } t_position;
 
 /********Estructura para gestionar imágenes****/
-typedef struct s_image
+typedef struct s_data
 {
-  void       *xpm_ptr; // Puntero a la imagen (por ejemplo, en formato XPM)
+  void       *img;  // Puntero a la imagen (por ejemplo, en formato XPM)
+  char       *addr;
+  int        bits_per_pixel;
+  int        line_length;
+  int        endian;
   int        x;        // Coordenada X en la ventana
   int        y;        // Coordenada Y en la ventana
-}		t_image;
+}		t_data;
 
 /******* Estructura para el mapa del juego******/
 typedef struct s_map
@@ -59,6 +63,7 @@ typedef struct s_game
   // int			  movements;           // Contador de movimientos
   // int			  player_sprite;       // Identificador del sprite del jugador
   t_map		*map;
+  t_data  *image;
   //t_bool		map_alloc;           // Bandera para verificar si el mapa ha sido alocado
   // t_image		wall;                // Imagen para las paredes
   // t_image		floor;               // Imagen para el suelo
@@ -83,5 +88,7 @@ void	handle_error(char *str, int size, t_map *map, t_game *game);
 void	handle_exit(char *str, int size);
 void	free_game(t_game *game);
 void	free_map2d(t_map *map);
+
+void    my_mlx_pixel_put(t_data *data, int x, int y, int color);
 #endif // GAME_H
 
