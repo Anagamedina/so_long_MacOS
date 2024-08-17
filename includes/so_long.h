@@ -30,17 +30,17 @@ typedef struct s_position
   int           y; // Coordenada Y
 } t_position;
 
-/********Estructura para gestionar imágenes****/
 typedef struct s_data
 {
-  void       *img;  // Puntero a la imagen (por ejemplo, en formato XPM)
-  char       *addr;
-  int        bits_per_pixel;
-  int        line_length;
-  int        endian;
-  int        x;        // Coordenada X en la ventana
-  int        y;        // Coordenada Y en la ventana
-}		t_data;
+    void    *img;            // Puntero a la imagen (por ejemplo, en formato XPM)
+    char    *addr;           // Dirección de memoria de la imagen
+    int     bits_per_pixel;  // Cantidad de bits por píxel
+    int     line_length;     // Longitud de una línea en la imagen
+    int     endian;          // Endian (orden de los bytes)
+    int     x;               // Coordenada X en la ventana
+    int     y;               // Coordenada Y en la ventana
+}   t_data;
+
 
 /******* Estructura para el mapa del juego******/
 typedef struct s_map
