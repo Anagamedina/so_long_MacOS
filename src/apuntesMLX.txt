@@ -1,0 +1,49 @@
+
+// mlx_loop(mlx_ptr);
+// free_resources(mlx_ptr, win_ptr, &image);
+// return (0);
+// }
+
+/*int mlx_pixel_put(void *mlx_ptr, void *win_ptr, int x, int y, int color);*/
+// void my_mlx_pixel_put(t_data *data, int x, int y, int color)
+// {
+//     char *dst;
+//     dst = data->addr + (y * data->line_length + x * (data->bits_per_pixel / 8));
+//     *(unsigned int*)dst = color;
+// }
+
+
+// /**********Cargar la imagen XPM *************/
+// // image.img = mlx_xpm_file_to_image(mlx_ptr, relative_path, &img_width, &img_height);
+// if (image.img == NULL)
+// {
+//     printf("Error loading XPM image.\n");
+//     free_resources(mlx_ptr, win_ptr, NULL);
+//     return (1);
+// }
+// /**********direccion memoria de imagen  *************/
+// image.addr = mlx_get_data_addr(image.img, &image.bits_per_pixel, &image.line_length, &image.endian);
+// if (image.addr == NULL)
+// {
+//     printf("Error getting image data address.\n");
+//     free_resources(mlx_ptr, win_ptr, &image);
+//     return (1);
+// }
+
+// printf("Bits per pixel: %d\n", image.bits_per_pixel);
+// printf("Line length: %d\n", image.line_length);
+// printf("Endian: %d\n", image.endian);
+
+
+//static void free_resources(void *mlx_ptr, void *win_ptr, t_image *image)
+// {
+//     if (image && image->img)
+//         mlx_destroy_image(mlx_ptr, image->img);
+//     if (win_ptr)
+//         mlx_destroy_window(mlx_ptr, win_ptr);
+//     if (mlx_ptr)
+//     {
+//         mlx_destroy_display(mlx_ptr);
+//         free(mlx_ptr);
+//     }
+// }

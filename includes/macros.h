@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   macros.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anamedin <anamedin@student.42barcelona.c>  +#+  +:+       +#+        */
+/*   By: anamedin <anamedin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 16:42:16 by anamedin          #+#    #+#             */
-/*   Updated: 2024/08/17 13:34:10 by anamedin         ###   ########.fr       */
+/*   Updated: 2024/08/19 13:41:25 by anamedin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,3 +26,10 @@
 #define ERROR_MEMORY "Error\nMemory allocation failure.\n"
 
 #endif // ERROR_MACROS_H
+
+
+#define WALL_XPM "assets/wall.xpm"
+#define FLOOR_XPM "assets/floor.xpm"
+#define COIN_XPM "assets/coin.xpm"
+#define OPEN_EXIT_XPM "assets/open-exit.xpm"
+#define PLAYER_BACK_XPM "assets/player_back.xpm"

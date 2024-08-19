@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: anamedin <anamedin@student.42barcel>       +#+  +:+       +#+         #
+#    By: anamedin <anamedin@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/22 16:22:56 by anamedin          #+#    #+#              #
-#    Updated: 2024/07/23 16:38:43 by anamedin         ###   ########.fr        #
+#    Updated: 2024/08/19 12:12:25 by anamedin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ SO_LONG_H = includes/so_long.h
 #Archivos fuente y objetos 
 #OBJ-->contiene una lista de archivos objeto (.o) 
 SRC =	$(SRC_DIR)/main.c \
-		$(SRC_DIR)/game.c \
+		$(SRC_DIR)/init_game.c \
 		$(SRC_DIR)/map_extensions.c \
 		$(SRC_DIR)/map_items.c \
 		$(SRC_DIR)/map_init.c \
