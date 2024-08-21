@@ -6,7 +6,7 @@
 /*   By: anamedin <anamedin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 11:20:08 by anamedin          #+#    #+#             */
-/*   Updated: 2024/08/21 19:53:18 by anamedin         ###   ########.fr       */
+/*   Updated: 2024/08/22 00:13:21 by anamedin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,12 @@ t_image new_image(void *mlx, char *path)
     return (image);
 }
 
-static void identify_images(t_game *game)
+static void	put_image(t_game *game, void *image, int x, int y)
+{
+	mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, image, x, y);
+}
+
+static void	identify_images(t_game *game)
 {
 	int i;
 	int j;
@@ -66,26 +71,26 @@ static void identify_images(t_game *game)
 			x = j * TILE_SIZE;
 			y = i * TILE_SIZE;
 			if (game->map->matrix[i][j] == WALL)
-				mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->wall.xpm_ptr, x, y);
+				put_image(game->mlx_ptr, game->wall.xpm_ptr, x, y);
 			if (game->map->matrix[i][j] == FLOOR)
-				mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->floor.xpm_ptr, x, y);
+				put_image(game->mlx_ptr, game->floor.xpm_ptr, x, y);
 			if (game->map->matrix[i][j] == EXIT)
-				mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->exit_closed.xpm_ptr, x, y);
+				put_image(game->mlx_ptr, game->exit_closed.xpm_ptr, x, y);
 			if (game->map->matrix[i][j] == PLAYER)
-				mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->player_back.xpm_ptr, x, y);
+				put_image(game->mlx_ptr, game->player_front.xpm_ptr, x, y);
 			if (game->map->matrix[i][j] == COINS)
-				mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->coin.xpm_ptr, x, y);
+				put_image(game->mlx_ptr, game->coin.xpm_ptr, x, y);
 			j++;
 		}
 		i++;
-
 	}
 }
+
 /*****************MAIN FUNCTION*******************/
 
-void init_sprite(t_game *game)
+void	init_sprite(t_game *game)
 {
-    void *mlx;
+	void	*mlx;
 
     init_images(game);
     init_mlx(game);

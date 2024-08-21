@@ -20,4 +20,6 @@ add_executable(so_long_anaa
         src/map_items.c
         src/init_game.c
         src/print_functions.c
+        minilibx-linux/mlx_int.h
+        src/sprites_player.c
 )

@@ -6,9 +6,19 @@
 /*   By: anamedin <anamedin@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 16:26:04 by anamedin          #+#    #+#             */
-/*   Updated: 2024/07/23 14:03:14 by anamedin         ###   ########.fr       */
+/*   Updated: 2024/08/22 00:18:34 by anamedin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//Contiene funciones para la gestión de gráficos con miniLibX.
 #include "../includes/so_long.h"
+/*
+ * crear una funcion para mover el jugador usando el teclado
+ * usando las macros
+ *
+ */
+
+void	move_player(t_game *game, int x, int y)
+{
+
+
+}
