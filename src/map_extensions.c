@@ -6,7 +6,7 @@
 /*   By: anamedin <anamedin@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 16:25:47 by anamedin          #+#    #+#             */
-/*   Updated: 2024/08/17 13:40:08 by anamedin         ###   ########.fr       */
+/*   Updated: 2024/08/21 20:16:58 by anamedin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,14 +43,14 @@ static int	check_first_and_last_line(t_map *map)
 	while (map->matrix[0][j] != '\0')
 	{
 		if (map->matrix[0][j] != '1')
-			handle_error(ERROR_WALLS, 27, map, NULL);
+			handle_error(ERROR_WALLS, 30, map, NULL);
 		j++;
 	}
 	j = 0;
 	while (map->matrix[map->rows - 1][j] != '\0')
 	{
 		if (map->matrix[map->rows - 1][j] != '1')
-			handle_error(ERROR_WALLS, 27, map, NULL);
+			handle_error(ERROR_WALLS, 30, map, NULL);
 		j++;
 	}
 	return (0);
@@ -65,14 +65,14 @@ static int	check_laterals_map(t_map *map)
 	{
 		if (map->matrix[i][0] != '1'
 			|| map->matrix[i][map->cols - 1] != '1')
-			handle_error(ERROR_WALLS, 27, map, NULL);
+			handle_error(ERROR_WALLS, 30, map, NULL);
 		i++;
 	}
 	i = 0;
 	while (i < map->rows)
 	{
 		if (map->matrix[i][map->cols - 1] != '1')
-			handle_error(ERROR_WALLS, 27, map, NULL);
+			handle_error(ERROR_WALLS, 30, map, NULL);
 		i++;
 	}
 	return (0);

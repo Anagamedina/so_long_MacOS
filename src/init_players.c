@@ -6,7 +6,7 @@
 /*   By: anamedin <anamedin@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/14 16:13:35 by anamedin          #+#    #+#             */
-/*   Updated: 2024/08/17 17:43:26 by anamedin         ###   ########.fr       */
+/*   Updated: 2024/08/21 20:35:39 by anamedin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ static void	players_init_pos(t_map *map)
 	}
 }
 
-static void	flood_fill(t_map *map, int x, int y, int *ccoins)
+void	flood_fill(t_map *map, int x, int y, int *ccoins)
 {
 	if (x < 0 || y < 0 || x >= map->cols || y >= map->rows)
 		return ;
@@ -48,6 +48,9 @@ static void	flood_fill(t_map *map, int x, int y, int *ccoins)
 	if (map->matrix[y][x] == 'C')
 		(*ccoins)++;
 	map->matrix[y][x] = 'V';
+
+	print_map(map);
+
 	flood_fill(map, x + 1, y, ccoins);
 	flood_fill(map, x - 1, y, ccoins);
 	flood_fill(map, x, y + 1, ccoins);
@@ -86,15 +89,27 @@ void	validation_player(int *ccoins, t_map *map)
 
 	copy_map.rows = map->rows;
 	copy_map.cols = map->cols;
+
+
+
 	players_init_pos(map);
 	copy_map_matrix(&copy_map, map);
-	flood_fill(&copy_map, map->player_pos.y, map->player_pos.x, ccoins);
-	if (*ccoins == map->coins || \
-		map->matrix[map->exit_pos.y][map->exit_pos.x] == 'V')
+
+	printf("PLAYER POS: [%d] [%d]\n", map->player_pos.y, map->player_pos.x);
+
+	//flood_fill(&copy_map, map->player_pos.y, map->player_pos.x, ccoins);
+	flood_fill(&copy_map, map->player_pos.x, map->player_pos.y, ccoins);
+	//print_map(map);
+	printf("DATA MATRIX\n");
+
+	printf("rows asef: %d\n", map->rows);
+	printf("columns asdf: %d\n", map->cols);
+
+	if (*ccoins == map->coins || map->matrix[map->exit_pos.y][map->exit_pos.x] == 'V')
 	{
 		printf("¡CCOINS OKAY y SALIDA OKAY\n");
 		//free_map2d(&copy_map);
 	}
 	else
-		handle_error(ERROR_COINS_EXIT, 13, map, NULL);
+		handle_error(ERROR_COINS_EXIT, 20, map, NULL);
 }

@@ -6,7 +6,7 @@
 /*   By: anamedin <anamedin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 16:42:16 by anamedin          #+#    #+#             */
-/*   Updated: 2024/08/19 13:41:25 by anamedin         ###   ########.fr       */
+/*   Updated: 2024/08/21 19:48:08 by anamedin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,17 @@
 #define ERROR_OPEN_FILE "Error\nFailure to open arg-file.\n"
 #define ERROR_MEMORY "Error\nMemory allocation failure.\n"
 
-#endif // ERROR_MACROS_H
+#define WALL '1'
+#define FLOOR '0'
+#define COINS 'C'
+#define EXIT 'E'
+#define PLAYER 'P'
 
+#define TILE_SIZE 32
 
 #define WALL_XPM "assets/wall.xpm"
 #define FLOOR_XPM "assets/floor.xpm"
 #define COIN_XPM "assets/coin.xpm"
 #define OPEN_EXIT_XPM "assets/open-exit.xpm"
 #define PLAYER_BACK_XPM "assets/player_back.xpm"
+#endif // ERROR_MACROS_H

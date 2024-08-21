@@ -6,7 +6,7 @@
 /*   By: anamedin <anamedin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 16:26:31 by anamedin          #+#    #+#             */
-/*   Updated: 2024/08/19 13:40:36 by anamedin         ###   ########.fr       */
+/*   Updated: 2024/08/21 20:24:35 by anamedin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,5 +85,9 @@ void	free_map2d(t_map *map);
 /********SPRITES****/
 t_image new_sprite(void *mlx, char *path);
 void    init_sprite(t_game *game);
-#endif // GAME_H
 
+
+/********PRINT DATA****/
+void	print_map(t_map *map);
+
+#endif // GAME_H

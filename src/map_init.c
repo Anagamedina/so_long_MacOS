@@ -6,7 +6,7 @@
 /*   By: anamedin <anamedin@student.42barcelona.c>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/09 21:36:41 by anamedin          #+#    #+#             */
-/*   Updated: 2024/08/17 13:29:46 by anamedin         ###   ########.fr       */
+/*   Updated: 2024/08/21 20:17:28 by anamedin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,7 +103,7 @@ void	read_map(char *path, t_map *map)
 	{
 		line = (int) ft_strlen(map->matrix[i]);
 		if (map->cols != line)
-			handle_error(ERROR_INVALID_MAP, 23, map, NULL);
+			handle_error(ERROR_INVALID_MAP, 30, map, NULL);
 		i++;
 	}
 }
