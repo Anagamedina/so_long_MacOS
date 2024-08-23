@@ -6,7 +6,7 @@
 /*   By: anamedin <anamedin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 16:26:31 by anamedin          #+#    #+#             */
-/*   Updated: 2024/08/21 20:24:35 by anamedin         ###   ########.fr       */
+/*   Updated: 2024/08/23 22:36:54 by anamedin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ typedef struct s_map
   int			cols;     // Número de columnas en el mapa
   int			coins;       // Número de monedas en el mapa
   int			exit;        // Número de salidas en el mapa
-  int			players;     // Número de jugadores en el mapa
+  int			player;     // Número de jugadores en el mapa
   t_position	player_pos;
   t_position 	exit_pos; // Posición del jugado exitr
 }			t_map;
@@ -85,6 +85,8 @@ void	free_map2d(t_map *map);
 /********SPRITES****/
 t_image new_sprite(void *mlx, char *path);
 void    init_sprite(t_game *game);
+void	identify_images(t_game *game);
+int		handle_input(int keysym, t_game *game);
 
 
 /********PRINT DATA****/

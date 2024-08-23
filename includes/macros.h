@@ -6,7 +6,7 @@
 /*   By: anamedin <anamedin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 16:42:16 by anamedin          #+#    #+#             */
-/*   Updated: 2024/08/21 23:46:58 by anamedin         ###   ########.fr       */
+/*   Updated: 2024/08/23 22:47:21 by anamedin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,16 @@
 #define WALL '1'
 #define FLOOR '0'
 #define COINS 'C'
-#define EXIT 'E'
-#define PLAYER 'P'
+# define EXIT 'E'
+# define PLAYER 'P'
+
+// Direcciones del jugador
+# define LEFT 0
+# define RIGHT 1
+# define UP 2
+# define DOWN 3
+# define BACK 2
+# define FRONT 3
 
 /*-------------------- SIZE OF SPRITE ------------------*/
 #define TILE_SIZE 32

@@ -6,18 +6,17 @@
 /*   By: anamedin <anamedin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 14:31:54 by anamedin          #+#    #+#             */
-/*   Updated: 2024/08/19 12:27:42 by anamedin         ###   ########.fr       */
+/*   Updated: 2024/08/23 23:15:30 by anamedin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
-static int close_window(t_game *game)
+/*static int close_window(t_game *game)
 {
     mlx_destroy_window(game->mlx_ptr, game->win_ptr);
     free_game(game);
     exit(0);
-    return (0);
-}
+}*/
 int main(int argc, char **argv)
 {
     t_game  *game;
@@ -37,7 +36,8 @@ int main(int argc, char **argv)
             map_items(game->map);
             validation_player(&ccoins, game->map);
             init_sprite(game);
-            mlx_hook(game->win_ptr, 17, 0, close_window, game); 
+			mlx_key_hook(game->win_ptr, handle_input, game);
+
             mlx_loop(game->mlx_ptr); 
         }
         free_game(game); 

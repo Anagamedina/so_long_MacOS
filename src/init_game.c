@@ -6,7 +6,7 @@
 /*   By: anamedin <anamedin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 11:20:08 by anamedin          #+#    #+#             */
-/*   Updated: 2024/08/22 00:13:21 by anamedin         ###   ########.fr       */
+/*   Updated: 2024/08/23 23:00:37 by anamedin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void init_images(t_game *game)
 {
-    game->map->players = 0;
+    game->map->player = 0;
     game->movements = 0;
 }
 
@@ -55,7 +55,7 @@ static void	put_image(t_game *game, void *image, int x, int y)
 	mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, image, x, y);
 }
 
-static void	identify_images(t_game *game)
+void	identify_images(t_game *game)
 {
 	int i;
 	int j;
@@ -101,9 +101,4 @@ void	init_sprite(t_game *game)
     game->exit_closed = new_image(mlx, OPEN_EXIT_XPM);
     game->player_back = new_image(mlx, PLAYER_BACK_XPM);
 	identify_images(game);
-    /*mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->wall.xpm_ptr, 1, 1);
-    mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->floor.xpm_ptr, 50, 50);
-    mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->exit_closed.xpm_ptr, 300, 300);
-    mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->player_back.xpm_ptr, 150, 150);
-    mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->coin.xpm_ptr, 250, 250);*/
 }
