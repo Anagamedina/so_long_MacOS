@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   mlx_int.h                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: anamedin <anamedin@student.42barcelona.c>  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/08/21 17:57:03 by anamedin          #+#    #+#             */
+/*   Updated: 2024/08/29 11:49:50 by anamedin         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 /*
-** mlx_int.h for mlx in 
-** 
+** mlx_int.h for mlx in
+**
 ** Made by Charlie Root
 ** Login   <ol@epitech.net>
-** 
+**
 ** Started on  Mon Jul 31 16:45:48 2000 Charlie Root
 ** Last update Wed May 25 16:44:16 2011 Olivier Crouzet
 */
@@ -24,12 +36,12 @@
 # include <unistd.h>
 # include <fcntl.h>
 # include <sys/mman.h>
-# include <X11/Xlib.h>
-# include <X11/Xutil.h>
+//# include <X11/Xlib.h>
+//# include <X11/Xutil.h>
 # include <sys/ipc.h>
 # include <sys/shm.h>
-# include <X11/extensions/XShm.h>
-# include <X11/XKBlib.h>
+//# include <X11/extensions/XShm.h>
+//# include <X11/XKBlib.h>
 /* #include	<X11/xpm.h> */
 
 

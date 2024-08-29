@@ -6,7 +6,7 @@
 /*   By: anamedin <anamedin@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/14 16:13:35 by anamedin          #+#    #+#             */
-/*   Updated: 2024/08/21 20:35:39 by anamedin         ###   ########.fr       */
+/*   Updated: 2024/08/29 11:11:38 by anamedin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	flood_fill(t_map *map, int x, int y, int *ccoins)
 		(*ccoins)++;
 	map->matrix[y][x] = 'V';
 
-	print_map(map);
+	//print_map(map);
 
 	flood_fill(map, x + 1, y, ccoins);
 	flood_fill(map, x - 1, y, ccoins);
@@ -70,7 +70,10 @@ static void	copy_map_matrix(t_map *copy_map, t_map *map)
 	{
 		copy_map->matrix[j] = malloc(sizeof(char) * map->cols);
 		if (!copy_map->matrix[j])
-			free_map2d(copy_map);		
+		{
+			free_map2d(copy_map);
+			return ;
+		}
 		i = 0;
 		while (i < map->cols)
 		{
@@ -98,12 +101,12 @@ void	validation_player(int *ccoins, t_map *map)
 	printf("PLAYER POS: [%d] [%d]\n", map->player_pos.y, map->player_pos.x);
 
 	//flood_fill(&copy_map, map->player_pos.y, map->player_pos.x, ccoins);
-	flood_fill(&copy_map, map->player_pos.x, map->player_pos.y, ccoins);
+	flood_fill(&copy_map, map->player_pos.y, map->player_pos.x, ccoins);
 	//print_map(map);
-	printf("DATA MATRIX\n");
+	//printf("DATA MATRIX\n");
 
-	printf("rows asef: %d\n", map->rows);
-	printf("columns asdf: %d\n", map->cols);
+	//printf("rows asef: %d\n", map->rows);
+	//printf("columns asdf: %d\n", map->cols);
 
 	if (*ccoins == map->coins || map->matrix[map->exit_pos.y][map->exit_pos.x] == 'V')
 	{

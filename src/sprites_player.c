@@ -6,7 +6,7 @@
 /*   By: anamedin <anamedin@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 16:26:04 by anamedin          #+#    #+#             */
-/*   Updated: 2024/08/23 23:10:30 by anamedin         ###   ########.fr       */
+/*   Updated: 2024/08/29 11:08:23 by anamedin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,11 @@ static void	move_player(t_game *game, int new_x, int new_y, int player_sprite)
 	last_x = game->map->player_pos.x;
 	last_y = game->map->player_pos.y;
 
-	if (new_y < 0 || new_y >= game->map->rows || new_x < 0 || new_x >= game->map->cols)
+	if (new_x < 0 || new_x >= game->map->cols || new_y < 0 || new_y >= game->map->rows)
+	{
+		printf("Invalid move: new_x=%d, new_y=%d\n", new_x, new_y);
 		return;
+	}
 
 	// Verifica si el movimiento es hacia una posición válida
 	if (game->map->matrix[new_y][new_x] == WALL)
@@ -75,6 +78,7 @@ static void	move_player(t_game *game, int new_x, int new_y, int player_sprite)
 		game->map->player_pos.x = new_x;
 		game->map->player_pos.y = new_y;
 		game->map->matrix[new_y][new_x] = PLAYER;
+		printf("Moving player to: new_x=%d, new_y=%d\n", new_x, new_y);
 
 		// Incrementa el contador de movimientos
 		game->movements++;
@@ -85,7 +89,7 @@ static void	move_player(t_game *game, int new_x, int new_y, int player_sprite)
 }
 /*****************PRINCIPAL FUNCTION*******************/
 
-int	handle_input(int keysym, t_game *game)
+/*int	handle_input(int keysym, t_game *game)
 {
 	if (keysym == KEY_W)
 		move_player(game, game->map->player_pos.y - 1, game->map->player_pos.x, BACK);
@@ -98,4 +102,30 @@ int	handle_input(int keysym, t_game *game)
 	if (keysym == KEY_ESC)
 		ft_close_game(game);
 	return (0);
+}*/
+
+int	handle_input(int keysym, t_game *game)
+{
+	int new_x = game->map->player_pos.x;
+	int new_y = game->map->player_pos.y;
+
+	printf("Handle input: keysym=%d, player_pos.x=%d, player_pos.y=%d\n", keysym, new_x, new_y);
+
+	if (keysym == KEY_W)
+		new_y -= 1;  // Mover hacia arriba
+	if (keysym == KEY_A)
+		new_x -= 1;  // Mover hacia la izquierda
+	if (keysym == KEY_S)
+		new_y += 1;  // Mover hacia abajo
+	if (keysym == KEY_D)
+		new_x += 1;  // Mover hacia la derecha
+	if (keysym == KEY_ESC)
+		ft_close_game(game);
+
+	printf("Moving player to: new_x=%d, new_y=%d\n", new_x, new_y);
+
+	move_player(game, new_x, new_y, game->player_sprite);
+	return (0);
 }
+
+

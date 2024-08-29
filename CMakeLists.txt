@@ -1,8 +1,16 @@
 cmake_minimum_required(VERSION 3.25.2)
 project(so_long_anaa C)
 
-set(CMAKE_C_STANDARD 11)
+set(CMAKE_C_STANDARD 99)
 
+# Comando para compilar libmlx.a
+add_custom_target(libmlx ALL
+        COMMAND make
+        WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/minilibx-linux
+        COMMENT "Compilando libmlx.a"
+)
+
+# Añadir el ejecutable
 add_executable(so_long_anaa
         src/main.c
         src/map_init.c
@@ -22,4 +30,53 @@ add_executable(so_long_anaa
         src/print_functions.c
         minilibx-linux/mlx_int.h
         src/sprites_player.c
+
+        minilibx-linux/mlx_int_wait_first_expose.c
+        minilibx-linux/mlx_get_data_addr.c
+        minilibx-linux/mlx_screen_size.c
+        minilibx-linux/mlx_int_str_to_wordtab.c
+        minilibx-linux/mlx_int_set_win_event_mask.c
+        minilibx-linux/mlx_clear_window.c
+        minilibx-linux/mlx_int_get_visual.c
+        minilibx-linux/mlx_destroy_image.c
+        minilibx-linux/mlx_string_put.c
+        #        libs/minilibx-linux/mlx_lib_xpm.c
+        minilibx-linux/mlx_ext_randr.c
+        minilibx-linux/mlx_rgb.c
+        minilibx-linux/mlx_pixel_put.c
+        minilibx-linux/mlx_new_window.c
+        minilibx-linux/mlx_flush_event.c
+        minilibx-linux/mlx_loop_hook.c
+        minilibx-linux/mlx_hook.c
+        minilibx-linux/mlx_new_image.c
+        minilibx-linux/mlx_int_do_nothing.c
+        minilibx-linux/mlx_destroy_window.c
+        minilibx-linux/mlx_set_font.c
+        minilibx-linux/mlx_put_image_to_window.c
+        minilibx-linux/mlx_mouse.c
+        minilibx-linux/mlx_loop.c
+        minilibx-linux/mlx_int_anti_resize_win.c
+        minilibx-linux/mlx_mouse_hook.c
+        minilibx-linux/mlx_key_hook.c
+        minilibx-linux/mlx_destroy_display.c
+        minilibx-linux/mlx_get_color_value.c
+        minilibx-linux/mlx_init.c
+        minilibx-linux/mlx_xpm.c
+        minilibx-linux/mlx_int_param_event.c
+        minilibx-linux/mlx_expose_hook.c
+)
+
+# Asegurarse de que el target so_long_42 dependa de libmlx.a
+add_dependencies(so_long_anaa libmlx)
+
+# Enlazar el ejecutable con libmlx.a y las bibliotecas X11 y Xext
+target_link_libraries(so_long_anaa
+        ${CMAKE_CURRENT_SOURCE_DIR}/minilibx-linux/libmlx.a
+        mlx
+        X11
+        Xext
+        Xpm
+        Xrandr
+        # "-framework OpenGL"
+        # "-framework AppKit"
 )
