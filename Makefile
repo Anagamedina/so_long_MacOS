@@ -46,8 +46,8 @@ SRC =	$(SRC_DIR)/main.c \
 		$(SRC_DIR)/init_structs.c \
 		$(SRC_DIR)/handle_errors.c \
 		$(SRC_DIR)/init_players.c \
-		$(SRC_DIR)/print_functions.c
-		#$(SRC_DIR)/sprites_player.c
+		$(SRC_DIR)/print_functions.c \
+		$(SRC_DIR)/sprites_player.c
 
 OBJ = $(SRC:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 

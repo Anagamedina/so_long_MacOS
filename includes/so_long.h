@@ -6,7 +6,7 @@
 /*   By: anamedin <anamedin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 16:26:31 by anamedin          #+#    #+#             */
-/*   Updated: 2024/08/31 19:09:43 by anamedin         ###   ########.fr       */
+/*   Updated: 2024/08/31 23:20:33 by anamedin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ void	free_map2d(t_map *map);
 void new_image(t_game *game, void **image, char *path);
 void    init_sprite(t_game *game);
 void	identify_images(t_game *game);
-//int		handle_input(int keysym, t_game *game);
+int		handle_input(int keysym, t_game *game);
 //void	move_player(t_game *game, int new_x, int new_y, int player_sprite);
 //void	ft_close_game(t_game *game);
 
