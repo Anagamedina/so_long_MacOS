@@ -21,6 +21,7 @@ add_executable(so_long_anaa
         src/main.c
         src/map_init.c
         includes/so_long.h
+        includes/macros.h
         libft/libft.h
         libft/ft_strlen.c
         libft/ft_split.c
@@ -29,7 +30,6 @@ add_executable(so_long_anaa
         src/init_structs.c
         src/handle_errors.c
         src/init_players.c
-        includes/macros.h
         src/map_extensions.c
         src/map_items.c
         src/init_game.c

@@ -6,7 +6,7 @@
 /*   By: anamedin <anamedin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 16:42:16 by anamedin          #+#    #+#             */
-/*   Updated: 2024/08/30 21:09:37 by anamedin         ###   ########.fr       */
+/*   Updated: 2024/08/31 20:05:28 by anamedin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,9 @@
 #define ERROR_MEMORY "Error\nMemory allocation failure.\n"
 
 /*-------------------- ITEMS ASSIGN ------------------*/
-#define WALL '1'
-#define FLOOR '0'
-#define COINS 'C'
+# define WALL '1'
+# define FLOOR '0'
+# define COINS 'C'
 # define EXIT 'E'
 # define PLAYER 'P'
 
@@ -44,14 +44,14 @@
 #define TILE_SIZE 32
 
 /*-------------------- XPM PATHS ------------------*/
-#define WALL_XPM "./assets/wall.xpm"
-#define FLOOR_XPM "./assets/floor.xpm"
-#define COIN_XPM "./assets/coin.xpm"
-#define OPEN_EXIT_XPM "./assets/open-exit.xpm"
-#define PLAYER_BACK_XPM "./assets/player_back.xpm"
+# define PLAYER_BACK_XPM "../assets/player_back.xpm"
+# define COIN_XPM "../assets/coin.xpm"
+# define FLOOR_XPM "../assets/floor.xpm"
+# define WALL_XPM "../assets/wall.xpm"
+# define EXIT_CLOSED_XPM "../assets/exit-closed.xpm"
+# define OPEN_EXIT_XPM "../assets/open-exit.xpm"
 
 /*-------------------- KEYS EVENTS ------------------*/
-
 #define KEY_W 119
 #define KEY_A 97
 #define KEY_S 115
@@ -71,7 +71,5 @@
 #define KEY_LEFT 65361
 #define KEY_RIGHT 65363
 #endif
-
-
 
 #endif

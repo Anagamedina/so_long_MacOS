@@ -6,7 +6,7 @@
 /*   By: anamedin <anamedin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 14:07:52 by anamedin          #+#    #+#             */
-/*   Updated: 2024/08/31 18:29:20 by anamedin         ###   ########.fr       */
+/*   Updated: 2024/08/31 20:12:00 by anamedin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,8 @@ t_game	*init_game(void)
 
 	game->map = map;
 
-	game->mlx_ptr = NULL;
-	game->win_ptr = NULL;
+//	game->mlx_ptr = NULL;
+//	game->win_ptr = NULL;
 	game->movements = 0;
 	game->player_sprite = 0;
 	return (game);
