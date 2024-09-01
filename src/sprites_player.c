@@ -6,7 +6,7 @@
 /*   By: anamedin <anamedin@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 16:26:04 by anamedin          #+#    #+#             */
-/*   Updated: 2024/09/01 00:49:50 by anamedin         ###   ########.fr       */
+/*   Updated: 2024/09/01 21:30:27 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,8 @@ void	move_player(t_game *game, int new_x, int new_y, int player_sprite)
 	int	last_x;
 	int last_y;
 
-	last_x = game->map->player_pos.y;
-	last_y = game->map->player_pos.x;
+	last_x = game->map->player_pos.x;
+	last_y = game->map->player_pos.y;
 
 	if (new_x < 0 || new_x >= game->map->cols || new_y < 0 || new_y >= game->map->rows)
 	{
@@ -67,16 +67,19 @@ void	move_player(t_game *game, int new_x, int new_y, int player_sprite)
 	// Si el jugador se mueve a un suelo o recoge una moneda
 	if (game->map->matrix[new_x][new_y] == FLOOR || game->map->matrix[new_x][new_y] == COINS)
 	{
+		//game->map->player_pos.x = new_x;
+		//game->map->player_pos.y = new_y;
 		// Actualiza la posición anterior del jugador a FLOOR
 		game->map->matrix[last_x][last_y] = FLOOR;
+		game->map->matrix[new_x][new_y] = PLAYER;
 
 		// Si recoge una moneda, decrementa el contador
 		if (game->map->matrix[new_x][new_y] == COINS)
 			game->map->coins--;
 		printf("coins: %d\n", game->map->coins);
 		// Actualiza la nueva posición del jugador
-		game->player_back.x = new_x;
-		game->player_back.y = new_y;
+		game->map->player_pos.x = new_x;
+		game->map->player_pos.y = new_y;
 //		game->map->matrix[new_x][new_y] = PLAYER;
 		printf("Moving player to: new_x=%d, new_y=%d\n", new_x, new_y);
 
@@ -93,11 +96,11 @@ void	move_player(t_game *game, int new_x, int new_y, int player_sprite)
 int	handle_input(int keysym, t_game *game)
 {
 	if (keysym == KEY_W)
-		move_player(game, game->map->player_pos.x - 1, game->map->player_pos.y, BACK);
+		move_player(game, game->map->player_pos.y - 1, game->map->player_pos.x, BACK);
 	else if (keysym == KEY_A)
 		move_player(game, game->map->player_pos.x, game->map->player_pos.y - 1, LEFT);
 	else if (keysym == KEY_S)
-		move_player(game, game->map->player_pos.x + 1, game->map->player_pos.y, FRONT);
+		move_player(game, game->map->player_pos.y, game->map->player_pos.x + 1, FRONT);
 	else if (keysym == KEY_D)
 		move_player(game, game->map->player_pos.x, game->map->player_pos.y + 1, RIGHT);
 	else if (keysym == KEY_ESC)
