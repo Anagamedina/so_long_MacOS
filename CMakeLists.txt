@@ -76,9 +76,14 @@ add_dependencies(so_long_anaa libmlx)
 # Enlazar el ejecutable con libmlx.a y las bibliotecas X11 o alternativas para macOS
 if(APPLE)
     target_link_libraries(so_long_anaa
-            ${CMAKE_CURRENT_SOURCE_DIR}/minilibx-linux/libmlx.a
+            ${CMAKE_CURRENT_SOURCE_DIR}/minilibx-linux/libmlx_Darwin.a
             "-framework OpenGL"
             "-framework AppKit"
+            "-L/opt/X11/lib"
+            "-lX11"
+            "-lXext"
+            "-lXpm"
+            "-lXrandr"
     )
 else()
     target_link_libraries(so_long_anaa
