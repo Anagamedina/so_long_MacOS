@@ -35,6 +35,8 @@ static int	validate_path(char *argv)
 }
 
 // static int	check_first_and_last_line(game->map)
+// i rows (x)
+// j cols (y)
 static int	check_first_and_last_line(t_map *map)
 {
 	int	j;

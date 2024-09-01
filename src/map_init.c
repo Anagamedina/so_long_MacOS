@@ -6,7 +6,7 @@
 /*   By: anamedin <anamedin@student.42barcelona.c>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/09 21:36:41 by anamedin          #+#    #+#             */
-/*   Updated: 2024/08/21 20:17:28 by anamedin         ###   ########.fr       */
+/*   Updated: 2024/09/01 21:40:00 by anamedin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,17 +63,6 @@ static char	*read_file(char *path)
 	close(fd);
 	return (map1d);
 }
-
-/*static int rectangular_map(t_map *map)
-{
-	if (map->rows < map->cols)
-	{
-		printf("rectangular map\n");
-		return (0);
-	}
-	else
-		return (1);
-}*/
 /************************PRINCIPAL **************************/
 
 void	read_map(char *path, t_map *map)

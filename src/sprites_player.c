@@ -6,7 +6,7 @@
 /*   By: anamedin <anamedin@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 16:26:04 by anamedin          #+#    #+#             */
-/*   Updated: 2024/09/01 00:49:50 by anamedin         ###   ########.fr       */
+/*   Updated: 2024/09/01 22:47:05 by anamedin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,10 @@ void	move_player(t_game *game, int new_x, int new_y, int player_sprite)
 	int	last_x;
 	int last_y;
 
-	last_x = game->map->player_pos.y;
-	last_y = game->map->player_pos.x;
+	last_x = game->map->player_pos.x;
+	last_y = game->map->player_pos.y;
 
-	if (new_x < 0 || new_x >= game->map->cols || new_y < 0 || new_y >= game->map->rows)
+	if (new_y < 0 || new_y >= game->map->cols || new_x < 0 || new_x >= game->map->rows)
 	{
 		printf("Invalid move: new_x=%d, new_y=%d\n", new_x, new_y);
 		return;
@@ -75,9 +75,9 @@ void	move_player(t_game *game, int new_x, int new_y, int player_sprite)
 			game->map->coins--;
 		printf("coins: %d\n", game->map->coins);
 		// Actualiza la nueva posición del jugador
-		game->player_back.x = new_x;
-		game->player_back.y = new_y;
-//		game->map->matrix[new_x][new_y] = PLAYER;
+		game->map->player_pos.x = new_x;
+		game->map->player_pos.y = new_y;
+		game->map->matrix[new_x][new_y] = PLAYER;
 		printf("Moving player to: new_x=%d, new_y=%d\n", new_x, new_y);
 
 		// Incrementa el contador de movimientos

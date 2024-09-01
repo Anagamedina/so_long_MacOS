@@ -6,7 +6,7 @@
 /*   By: anamedin <anamedin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 11:20:08 by anamedin          #+#    #+#             */
-/*   Updated: 2024/08/31 20:27:29 by anamedin         ###   ########.fr       */
+/*   Updated: 2024/09/01 22:51:03 by anamedin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	init_mlx(t_game *game)
 		exit (1);
     }
 
-    game->win_ptr = mlx_new_window(game->mlx_ptr, game->map->cols* TILE_SIZE, game->map->rows * TILE_SIZE, "Hello Ana! so_long");
+    game->win_ptr = mlx_new_window(game->mlx_ptr, game->map->cols* TILE_SIZE, game->map->rows* TILE_SIZE, "Hello Ana! so_long");
     if (game->win_ptr == NULL)
     {
         printf("Error creating window.\n");
@@ -57,12 +57,14 @@ void	identify_images(t_game *game)
 	int i, j;
 	int x, y;
 
-	for (i = 0; i < game->map->rows; i++)
+	i = 0;
+	while (i < game->map->rows)
 	{
-		for (j = 0; j < game->map->cols; j++)
+		j = 0;
+		while (j < game->map->cols)
 		{
-			x = j * TILE_SIZE;
-			y = i * TILE_SIZE;
+			x = j * TILE_SIZE;  // j representa las columnas
+			y = i * TILE_SIZE;  // i representa las filas
 
 			// Determina qué imagen poner dependiendo del contenido del mapa
 			if (game->map->matrix[i][j] == WALL)
@@ -75,9 +77,13 @@ void	identify_images(t_game *game)
 				put_image(game, game->player_back.xpm_ptr, x, y);
 			else if (game->map->matrix[i][j] == COINS)
 				put_image(game, game->coin.xpm_ptr, x, y);
+
+			j++;
 		}
+		i++;
 	}
 }
+
 /*****************MAIN FUNCTION*******************/
 
 void	init_sprite(t_game *game)
