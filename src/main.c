@@ -6,7 +6,7 @@
 /*   By: anamedin <anamedin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 14:31:54 by anamedin          #+#    #+#             */
-/*   Updated: 2024/08/31 23:18:00 by anamedin         ###   ########.fr       */
+/*   Updated: 2024/09/01 23:10:44 by anamedin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,10 @@ int main(int argc, char **argv)
             map_items(game->map);
             validation_player(&ccoins, game->map);
 
-			init_mlx(game);
+			//init_mlx(game);
 			init_sprite(game);
 
-			identify_images(game);
+			//identify_images(game);
 
 			mlx_key_hook(game->win_ptr, handle_input, game);
 			mlx_hook(game->win_ptr, 17, 0, close_window, game);

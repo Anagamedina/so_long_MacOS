@@ -6,7 +6,7 @@
 /*   By: anamedin <anamedin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 11:20:08 by anamedin          #+#    #+#             */
-/*   Updated: 2024/09/01 22:51:03 by anamedin         ###   ########.fr       */
+/*   Updated: 2024/09/01 23:10:27 by anamedin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ void	init_mlx(t_game *game)
         free(game->mlx_ptr);
         exit(1);
     }
-//	init_sprite(game);
 }
 
 void	new_image(t_game *game, void **image, char *path)
@@ -88,9 +87,12 @@ void	identify_images(t_game *game)
 
 void	init_sprite(t_game *game)
 {
+	init_mlx(game);
 	new_image(game, &game->player_back.xpm_ptr, PLAYER_BACK_XPM);
 	new_image(game, &game->exit_closed.xpm_ptr, OPEN_EXIT_XPM);
     new_image(game, &game->coin.xpm_ptr, COIN_XPM);
     new_image(game, &game->floor.xpm_ptr, FLOOR_XPM);
 	new_image(game, &game->wall.xpm_ptr, WALL_XPM);
+
+	identify_images(game);
 }
