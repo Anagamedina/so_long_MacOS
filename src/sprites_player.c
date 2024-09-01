@@ -6,7 +6,7 @@
 /*   By: anamedin <anamedin@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 16:26:04 by anamedin          #+#    #+#             */
-/*   Updated: 2024/09/01 22:47:05 by anamedin         ###   ########.fr       */
+/*   Updated: 2024/09/01 23:22:09 by anamedin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,77 @@ void	ft_victory(t_game *game)
 	printf("¡Felicidades! ¡Has ganado el juego en %d movimientos!\n", game->movements);
 	ft_close_game(game);  // Llama a la función de cierre para salir del juego
 }
+// Función para actualizar la posición del jugador
+static void update_player_position(t_game *game, int new_x, int new_y, int last_x, int last_y)
+{
+	// Actualiza la posición anterior del jugador a FLOOR
+	game->map->matrix[last_x][last_y] = FLOOR;
 
-void	move_player(t_game *game, int new_x, int new_y, int player_sprite)
+	// Actualiza la nueva posición del jugador en la matriz
+	game->map->player_pos.x = new_x;
+	game->map->player_pos.y = new_y;
+	game->map->matrix[new_x][new_y] = PLAYER;
+
+	printf("Moving player to: new_x=%d, new_y=%d\n", new_x, new_y);
+
+	// Incrementa el contador de movimientos
+	game->movements++;
+	printf("movimientos: %d\n", game->movements);
+
+	// Renderiza el mapa actualizado
+	identify_images(game);
+}
+
+// Función para manejar la recogida de monedas
+static void handle_coin_pickup(t_game *game, int new_x, int new_y)
+{
+	if (game->map->matrix[new_x][new_y] == COINS)
+	{
+		game->map->coins--;
+		printf("coins: %d\n", game->map->coins);
+	}
+}
+
+void move_player(t_game *game, int new_x, int new_y, int player_sprite)
+{
+	int last_x;
+	int last_y;
+
+	last_x = game->map->player_pos.x;
+	last_y = game->map->player_pos.y;
+
+	// Verifica si el movimiento está dentro de los límites
+	if (new_y < 0 || new_y >= game->map->cols || new_x < 0 || new_x >= game->map->rows)
+	{
+		printf("Invalid move: new_x=%d, new_y=%d\n", new_x, new_y);
+		return;
+	}
+
+	// Verifica si el movimiento es hacia una posición válida
+	if (game->map->matrix[new_x][new_y] == WALL)
+		return; // No hacer nada si es una pared
+
+	game->player_sprite = player_sprite;
+
+	// Verifica si el jugador alcanza la salida
+	if (game->map->matrix[new_x][new_y] == EXIT && game->map->coins == 0)
+	{
+		ft_victory(game);
+		return;
+	}
+
+	// Si el jugador se mueve a un suelo o recoge una moneda
+	if (game->map->matrix[new_x][new_y] == FLOOR || game->map->matrix[new_x][new_y] == COINS)
+	{
+		// Maneja la recogida de monedas
+		handle_coin_pickup(game, new_x, new_y);
+
+		// Actualiza la posición del jugador
+		update_player_position(game, new_x, new_y, last_x, last_y);
+	}
+}
+
+/*void	move_player(t_game *game, int new_x, int new_y, int player_sprite)
 {
 	int	last_x;
 	int last_y;
@@ -87,7 +156,7 @@ void	move_player(t_game *game, int new_x, int new_y, int player_sprite)
 		// Renderiza el mapa actualizado
 		identify_images(game);
 	}
-}
+}*/
 /*****************PRINCIPAL FUNCTION*******************/
 
 int	handle_input(int keysym, t_game *game)
