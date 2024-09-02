@@ -6,7 +6,7 @@
 /*   By: anamedin <anamedin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 14:07:52 by anamedin          #+#    #+#             */
-/*   Updated: 2024/08/31 20:12:00 by anamedin         ###   ########.fr       */
+/*   Updated: 2024/09/02 13:17:45 by anamedin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ t_game	*init_game(void)
 	map = (t_map *)malloc(sizeof(t_map));
 	if (!map)
 		return (NULL);
-	
 	map->matrix = NULL;
 	map->rows = 0;
 	map->cols = 0;
@@ -37,11 +36,7 @@ t_game	*init_game(void)
 	map->player_pos.y = -1;
 	map->exit_pos.x = -1;
 	map->exit_pos.y = -1;
-
 	game->map = map;
-
-//	game->mlx_ptr = NULL;
-//	game->win_ptr = NULL;
 	game->movements = 0;
 	game->player_sprite = 0;
 	return (game);

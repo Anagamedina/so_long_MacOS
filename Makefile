@@ -26,7 +26,7 @@ else
 	MLX = -L$(MLX_DIR) -lmlx -L/usr/X11/lib -lXext -lX11 -framework OpenGL -framework AppKit
 endif
 
-# ================= VARIABLES ==================== #
+# ===================================== #
 
 NAME = so_long
 CC = cc
@@ -53,7 +53,7 @@ OBJ = $(SRC:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 
 LIBFT = $(LIBFT_DIR)/libft.a
 
-# ================ REGLAS ==================== #
+# ==================================== #
 
 all: $(LIBFT) $(MLX_LIB) $(NAME)
 
@@ -64,12 +64,14 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c Makefile $(SO_LONG_H)
 	@mkdir -p $(OBJ_DIR)
 	$(CC) $(CFLAGS) -c $< -o $@
 
+# ==================================== #
 $(LIBFT):
 	$(MAKE) -C $(LIBFT_DIR)
 
 $(MLX_LIB):
 	$(MAKE) -C $(MLX_DIR)
 
+# ==================================== #
 clean:
 	$(MAKE) -C $(LIBFT_DIR) clean
 	$(MAKE) -C $(MLX_DIR) clean

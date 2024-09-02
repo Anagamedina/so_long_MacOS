@@ -18,7 +18,9 @@ ARC = ar -rcs
 NAME = libft.a
 HEADER = libft.h
 
-SRCS := $(wildcard *.c) 
+SRCS := ft_bzero.c ft_calloc.c ft_split.c ft_strlen.c \
+		ft_printf.c ft_hex.c ft_print_string.c ft_putchar.c ft_putnbr.c \
+		ft_unsignedint.c
 
 OBJS = $(SRCS:.c=.o)
 

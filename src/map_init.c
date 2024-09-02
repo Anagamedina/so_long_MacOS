@@ -6,7 +6,7 @@
 /*   By: anamedin <anamedin@student.42barcelona.c>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/09 21:36:41 by anamedin          #+#    #+#             */
-/*   Updated: 2024/09/01 21:40:00 by anamedin         ###   ########.fr       */
+/*   Updated: 2024/09/02 14:12:45 by anamedin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,33 +32,21 @@ static char	*read_file(char *path)
 
 	fd = ft_open_map(path);
 	i = 0;
-	while((bytes_read = read(fd, &buffer, 1)) > 0)
+	bytes_read = read(fd, &buffer, 1);
+	while(bytes_read > 0)
 		i++;
-	close (fd);
-
+	//close (fd);
 	if (i == 0)
 		handle_exit(ERROR_OPEN_FILE, 26);
 	map1d = (char *)malloc(i + 1);
 	if (!map1d)
-	{
-		//return (NULL);
-		//free(map1d);
 		handle_exit(ERROR_MEMORY, 35);
-	}
 	fd = open(path, O_RDONLY);
 	if (fd < 0)
-    {
-        // free(map1d);
         handle_exit("Error reopening file.\n", 22);
-    }
-
 	bytes_read = read(fd, map1d, i);
-	if (bytes_read < 0) 
-	{
-		// free(map1d);
-		// close(fd);
+	if (bytes_read < 0)
 		handle_exit(ERROR_OPEN_FILE, 26);
-	}	
 	map1d[i] = '\0';
 	close(fd);
 	return (map1d);
@@ -76,15 +64,12 @@ void	read_map(char *path, t_map *map)
 		return ;
 	map->matrix = ft_split(map1d, '\n');
 	free(map1d);
-
 	if (map->matrix == NULL)
 		handle_exit(ERROR_MEMORY, 35);
-
 	i = 0;
 	while (map->matrix[i] != NULL)
 		i++;
 	map->rows = i;
-
 	line = (int) ft_strlen(map->matrix[0]);
 	map->cols = line;
 	i = 0;

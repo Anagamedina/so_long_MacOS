@@ -6,7 +6,7 @@
 /*   By: anamedin <anamedin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 16:26:31 by anamedin          #+#    #+#             */
-/*   Updated: 2024/08/31 23:20:33 by anamedin         ###   ########.fr       */
+/*   Updated: 2024/09/02 13:24:05 by anamedin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,48 +25,48 @@
 /********Estructura para posiciones en 2D*****/
 typedef struct s_position
 {
-  int           x; // Coordenada X
-  int           y; // Coordenada Y
+  int           x;
+  int           y;
 } t_position;
 
 typedef struct s_image
 {
-    void    *xpm_ptr;            // Puntero a la imagen (por ejemplo, en formato XPM)
-    int     x;               // Coordenada X en la ventana
-    int     y;               // Coordenada Y en la ventana
+    void    *xpm_ptr;
+    int     x;
+    int     y;
 }   t_image;
 
 
 /******* Estructura para el mapa del juego******/
 typedef struct s_map
 {
-  char		**matrix;       // Mapa representado como una matriz de cadenas
-  int			rows;        // Número de filas en el mapa
-  int			cols;     // Número de columnas en el mapa
-  int			coins;       // Número de monedas en el mapa
-  int			exit;        // Número de salidas en el mapa
-  int			player;     // Número de jugadores en el mapa
+  char		**matrix;
+  int			rows;
+  int			cols;
+  int			coins;
+  int			exit;
+  int			player;
   t_position	player_pos;
-  t_position 	exit_pos; // Posición del jugado exitr
+  t_position 	exit_pos;
 }			t_map;
 
 /********Estructura principal del juego****/
 typedef struct s_game
 {
-  void			*mlx_ptr;            // Puntero a la instancia de MiniLibX o similar
-  void			*win_ptr;            // Puntero a la ventana del juego
-  int			  movements;           // Contador de movimientos
-  int			  player_sprite;       // Identificador del sprite del jugador
-  t_map		*map;
-  t_image		wall;                // Imagen para las paredes
-  t_image		floor;               // Imagen para el suelo
-  t_image		coin;               // Imagen para las monedas
-  t_image		open_exit;           // Imagen para la salida abierta
-  t_image		exit_closed;         // Imagen para la salida cerrada
-  t_image		player_front;        // Imagen del jugador mirando hacia adelante
-  t_image		player_left;         // Imagen del jugador mirando hacia la izquierda
-  t_image		player_right;        // Imagen del jugador mirando hacia la derecha
-  t_image		player_back;         // Imagen del jugador mirando hacia atrás
+  void			*mlx_ptr;
+  void			*win_ptr;
+  int			movements;
+  int			player_sprite;
+  t_map			*map;
+  t_image		wall;
+  t_image		floor;
+  t_image		coin;
+  t_image		open_exit;
+  t_image		exit_closed;
+  t_image		player_front;
+  t_image		player_left;
+  t_image		player_right;
+  t_image		player_back;
 }			t_game;
 
 t_game	*init_game(void);
@@ -85,13 +85,10 @@ void	free_game(t_game *game);
 void	free_map2d(t_map *map);
 
 /********SPRITES****/
-void new_image(t_game *game, void **image, char *path);
+void 	new_image(t_game *game, void **image, char *path);
 void    init_sprite(t_game *game);
-void	identify_images(t_game *game);
+void identify_images(t_game *game, int i, int j);
 int		handle_input(int keysym, t_game *game);
-//void	move_player(t_game *game, int new_x, int new_y, int player_sprite);
-//void	ft_close_game(t_game *game);
-
 
 /********PRINT DATA****/
 void	print_map(t_map *map);

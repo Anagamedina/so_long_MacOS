@@ -6,7 +6,7 @@
 /*   By: anamedin <anamedin@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 21:46:21 by anamedin          #+#    #+#             */
-/*   Updated: 2024/08/23 23:01:02 by anamedin         ###   ########.fr       */
+/*   Updated: 2024/09/02 12:19:36 by anamedin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 static void	validations_items(t_map *copy_map)
 {
-	printf("Players: %d\n", copy_map->player);
-	printf("Coins: %d\n", copy_map->coins);
-	printf("Exit: %d\n", copy_map->exit);
+	ft_printf("Players: %d\n", copy_map->player);
+	ft_printf("Coins: %d\n", copy_map->coins);
+	ft_printf("Exit: %d\n", copy_map->exit);
 	if (copy_map->coins < 1 || copy_map->exit != 1 || copy_map->player!= 1)
 		handle_error(ERROR_ITEMS, 20, copy_map, NULL);
 	else
 	{
-		printf("Items ok\n");
+		ft_printf("Items ok\n");
 	}
 }
 

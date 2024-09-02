@@ -6,7 +6,7 @@
 /*   By: anamedin <anamedin@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 16:25:47 by anamedin          #+#    #+#             */
-/*   Updated: 2024/08/21 20:16:58 by anamedin         ###   ########.fr       */
+/*   Updated: 2024/09/02 12:13:00 by anamedin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,6 @@ static int	validate_path(char *argv)
 	return (0);
 }
 
-// static int	check_first_and_last_line(game->map)
-// i rows (x)
-// j cols (y)
 static int	check_first_and_last_line(t_map *map)
 {
 	int	j;
@@ -89,9 +86,9 @@ void	map_format_border_check(char *path, t_map *map)
 	{
 		printf("file is valid\n");
 		read_map(path, map);
-		if (check_first_and_last_line(map) || check_laterals_map(map))
-			printf("validacion mapa paredes correctas\n");
+		if (check_first_and_last_line(map) == 0 && check_laterals_map(map) == 0)
+			ft_printf("Walls ok \n");
 	}
 	else
-		printf("error file\n");
+		ft_printf("error file\n");
 }
