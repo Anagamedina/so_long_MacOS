@@ -6,7 +6,7 @@
 /*   By: anamedin <anamedin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 11:20:08 by anamedin          #+#    #+#             */
-/*   Updated: 2024/09/02 14:09:16 by anamedin         ###   ########.fr       */
+/*   Updated: 2024/09/02 19:14:22 by anamedin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,10 +45,21 @@ void	new_image(t_game *game, void **image, char *path)
 	}
 }
 
-
 void	put_image(t_game *game, void *image, int x,  int y)
 {
 	mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, image, x, y);
+}
+
+void	render_player(t_game *game, int x, int y)
+{
+	if (game->player_sprite == BACK)
+		put_image(game, game->player_back.xpm_ptr, x, y);
+	else if(game->player_sprite == FRONT)
+		put_image(game, game->player_front.xpm_ptr, x, y);
+	else if (game->player_sprite == LEFT)
+		put_image(game, game->player_left.xpm_ptr, x, y);
+	else if (game->player_sprite == RIGHT)
+		put_image(game, game->player_right.xpm_ptr, x, y);
 }
 
 void identify_images(t_game *game, int i, int j)
@@ -70,7 +81,10 @@ void identify_images(t_game *game, int i, int j)
 			else if (game->map->matrix[i][j] == EXIT)
 				put_image(game, game->exit_closed.xpm_ptr, x, y);
 			else if (game->map->matrix[i][j] == PLAYER)
-				put_image(game, game->player_back.xpm_ptr, x, y);
+			{
+				put_image(game, game->player_front.xpm_ptr, x, y);
+				render_player(game,x, y);
+			}
 			else if (game->map->matrix[i][j] == COINS)
 				put_image(game, game->coin.xpm_ptr, x, y);
 			j++;
@@ -84,11 +98,14 @@ void identify_images(t_game *game, int i, int j)
 void	init_sprite(t_game *game)
 {
 	init_mlx(game);
+	new_image(game, &game->player_front.xpm_ptr, PLAYER_FRONT_XPM);
 	new_image(game, &game->player_back.xpm_ptr, PLAYER_BACK_XPM);
+	new_image(game, &game->player_left.xpm_ptr, PLAYER_LEFT_XPM);
+	new_image(game, &game->player_right.xpm_ptr, PLAYER_RIGHT_XPM);
+
 	new_image(game, &game->exit_closed.xpm_ptr, OPEN_EXIT_XPM);
     new_image(game, &game->coin.xpm_ptr, COIN_XPM);
     new_image(game, &game->floor.xpm_ptr, FLOOR_XPM);
 	new_image(game, &game->wall.xpm_ptr, WALL_XPM);
-
 	identify_images(game, 0, 0);
 }

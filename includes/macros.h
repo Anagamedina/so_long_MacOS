@@ -6,7 +6,7 @@
 /*   By: anamedin <anamedin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 16:42:16 by anamedin          #+#    #+#             */
-/*   Updated: 2024/08/31 23:12:52 by anamedin         ###   ########.fr       */
+/*   Updated: 2024/09/02 18:45:16 by anamedin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,10 @@
 /*-------------------- XPM PATHS ------------------*/
 #ifdef __APPLE__
 # define PLAYER_BACK_XPM "/Users/catalinaburgos/Documents/42/so_long_ana/assets/player_back.xpm"
+# define PLAYER_FRONT_XPM "/Users/catalinaburgos/Documents/42/so_long_ana/assets/player_front.xpm"
+# define PLAYER_RIGHT_XPM "/Users/catalinaburgos/Documents/42/so_long_ana/assets/player_right.xpm"
+# define PLAYER_LEFT_XPM "/Users/catalinaburgos/Documents/42/so_long_ana/assets/player_left.xpm"
+
 # define COIN_XPM "/Users/catalinaburgos/Documents/42/so_long_ana/assets/coin.xpm"
 # define FLOOR_XPM "/Users/catalinaburgos/Documents/42/so_long_ana/assets/floor.xpm"
 # define WALL_XPM "/Users/catalinaburgos/Documents/42/so_long_ana/assets/wall.xpm"

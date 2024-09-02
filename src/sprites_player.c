@@ -6,7 +6,7 @@
 /*   By: anamedin <anamedin@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 16:26:04 by anamedin          #+#    #+#             */
-/*   Updated: 2024/09/02 13:58:08 by anamedin         ###   ########.fr       */
+/*   Updated: 2024/09/02 19:10:20 by anamedin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,6 @@ int	handle_input(int keysym, t_game *game)
 	{
 		ft_printf("Exiting the game. You pressed Q or Escape. Goodbye!\n");
 		ft_close_game(game);
-
 	}
 	return (0);
 }

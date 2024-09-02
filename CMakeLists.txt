@@ -22,11 +22,20 @@ add_executable(so_long_anaa
         src/map_init.c
         includes/so_long.h
         includes/macros.h
+        # libft
         libft/libft.h
         libft/ft_strlen.c
         libft/ft_split.c
         libft/ft_calloc.c
         libft/ft_bzero.c
+        # printf
+        libft/ft_print_string.c
+        libft/ft_printf.c
+        libft/ft_hex.c
+        libft/ft_putchar.c
+        libft/ft_putnbr.c
+        libft/ft_unsignedint.c
+
         src/init_structs.c
         src/handle_errors.c
         src/init_players.c
