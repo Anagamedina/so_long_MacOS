@@ -6,7 +6,7 @@
 #    By: anamedin <anamedin@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/22 16:22:56 by anamedin          #+#    #+#              #
-#    Updated: 2024/08/19 12:12:25 by anamedin         ###   ########.fr        #
+#    Updated: 2024/09/03 12:31:18 by anamedin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,7 @@ endif
 
 NAME = so_long
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -Iincludes -I$(MLX_DIR) -I$(LIBFT_DIR) $(INCLUDES)
+CFLAGS = -Wall -Wextra -Werror -Iincludes -I$(MLX_DIR) -I$(LIBFT_DIR) $(INCLUDES) -fsanitize=address
 
 SRC_DIR = src
 OBJ_DIR = obj
@@ -47,6 +47,7 @@ SRC =	$(SRC_DIR)/main.c \
 		$(SRC_DIR)/handle_errors.c \
 		$(SRC_DIR)/init_players.c \
 		$(SRC_DIR)/print_functions.c \
+		$(SRC_DIR)/exit_free.c \
 		$(SRC_DIR)/sprites_player.c
 
 OBJ = $(SRC:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)

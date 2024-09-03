@@ -6,7 +6,7 @@
 /*   By: anamedin <anamedin@student.42barcelona.c>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 17:57:03 by anamedin          #+#    #+#             */
-/*   Updated: 2024/08/30 20:47:07 by anamedin         ###   ########.fr       */
+/*   Updated: 2024/09/03 11:22:04 by anamedin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@
 # include <sys/shm.h>
 # include <X11/extensions/XShm.h>
 # include <X11/XKBlib.h>
-#include	<X11/xpm.h>
+/*#include	<X11/xpm.h>*/
 
 
 # define MLX_TYPE_SHM_PIXMAP 3

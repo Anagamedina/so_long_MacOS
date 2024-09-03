@@ -6,7 +6,7 @@
 /*   By: anamedin <anamedin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 16:26:31 by anamedin          #+#    #+#             */
-/*   Updated: 2024/09/02 13:24:05 by anamedin         ###   ########.fr       */
+/*   Updated: 2024/09/03 13:25:23 by anamedin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,7 @@ typedef struct s_game
 }			t_game;
 
 t_game	*init_game(void);
+t_map	  *init_map(void);
 void	map_format_border_check(char *path, t_map *map);
 void	map_items(t_map *map);
 void	read_map(char *path, t_map *map);
@@ -86,11 +87,15 @@ void	free_map2d(t_map *map);
 
 /********SPRITES****/
 void 	new_image(t_game *game, void **image, char *path);
-void    init_sprite(t_game *game);
-void identify_images(t_game *game, int i, int j);
+void  init_sprite(t_game *game);
+void  identify_images(t_game *game, int i, int j);
 int		handle_input(int keysym, t_game *game);
 
 /********PRINT DATA****/
 void	print_map(t_map *map);
+void  free_images(t_game *game);
+void	ft_close_game(t_game *game);
+void	ft_victory(t_game *game);
+
 
 #endif // GAME_H

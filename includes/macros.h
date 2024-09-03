@@ -6,7 +6,7 @@
 /*   By: anamedin <anamedin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 16:42:16 by anamedin          #+#    #+#             */
-/*   Updated: 2024/09/02 18:45:16 by anamedin         ###   ########.fr       */
+/*   Updated: 2024/09/03 12:10:32 by anamedin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,11 @@
 /*-------------------- SIZE OF SPRITE ------------------*/
 #define TILE_SIZE 32
 
-/*-------------------- XPM PATHS ------------------*/
+/*-------------------- -------------- ------------------*/
+
+
+
+/*-------------------- XPM PATHS -----------------------*/
 #ifdef __APPLE__
 # define PLAYER_BACK_XPM "/Users/catalinaburgos/Documents/42/so_long_ana/assets/player_back.xpm"
 # define PLAYER_FRONT_XPM "/Users/catalinaburgos/Documents/42/so_long_ana/assets/player_front.xpm"
@@ -56,12 +60,15 @@
 # define EXIT_CLOSED_XPM "/Users/catalinaburgos/Documents/42/so_long_ana/assets/exit-closed.xpm"
 # define OPEN_EXIT_XPM "/Users/catalinaburgos/Documents/42/so_long_ana/assets/open-exit.xpm"
 #else
-# define PLAYER_BACK_XPM "../assets/player_back.xpm"
-    # define COIN_XPM "../assets/coin.xpm"
-    # define FLOOR_XPM "../assets/floor.xpm"
-    # define WALL_XPM "../assets/wall.xpm"
-    # define EXIT_CLOSED_XPM "../assets/exit-closed.xpm"
-    # define OPEN_EXIT_XPM "../assets/open-exit.xpm"
+# define PLAYER_FRONT_XPM "assets/player_front.xpm"
+# define PLAYER_LEFT_XPM "assets/player_left.xpm"
+# define PLAYER_RIGHT_XPM "assets/player_right.xpm"
+# define PLAYER_BACK_XPM "assets/player_back.xpm"
+    # define COIN_XPM "assets/coin.xpm"
+    # define FLOOR_XPM "assets/floor.xpm"
+    # define WALL_XPM "assets/wall.xpm"
+    # define EXIT_CLOSED_XPM "assets/exit-closed.xpm"
+    # define OPEN_EXIT_XPM "assets/open-exit.xpm"
 #endif
 
 /*-------------------- KEYS EVENTS ------------------*/

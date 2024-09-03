@@ -1,41 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   graphics.c                                         :+:      :+:    :+:   */
+/*   sprites_player.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anamedin <anamedin@student.42barcel>       +#+  +:+       +#+        */
+/*   By: anamedin <anamedin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 16:26:04 by anamedin          #+#    #+#             */
-/*   Updated: 2024/09/02 19:10:20 by anamedin         ###   ########.fr       */
+/*   Updated: 2024/09/03 12:31:57 by anamedin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
-/*
- * crear una funcion para mover el jugador usando el teclado
- * usando las macros
- *
- */
-void	ft_close_game(t_game *game)
-{
-	if (game->mlx_ptr && game->win_ptr)
-		mlx_destroy_window(game->mlx_ptr, game->win_ptr);
 
-	if (game->mlx_ptr)
-	{
-		mlx_destroy_display(game->mlx_ptr);
-		free(game->mlx_ptr);
-	}
-	free(game->map->matrix);
-	free(game);
-	exit(0);
-}
 
-void	ft_victory(t_game *game)
-{
-	ft_printf("Congratulations! You have won the game in %d moves!\n", game->movements);
-	ft_close_game(game);
-}
 
 static void update_player_position(t_game *game, int new_x, int new_y)
 {
