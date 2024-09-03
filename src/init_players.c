@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_players.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anamedin <anamedin@student.42barcel>       +#+  +:+       +#+        */
+/*   By: anamedin <anamedin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/14 16:13:35 by anamedin          #+#    #+#             */
-/*   Updated: 2024/09/02 13:25:12 by anamedin         ###   ########.fr       */
+/*   Updated: 2024/09/03 18:11:10 by anamedin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,8 +95,10 @@ void	validation_player(int *ccoins, t_map *map)
 	if (*ccoins == map->coins || map->matrix[map->exit_pos.x][map->exit_pos.y] == 'V')
 	{
 		ft_printf("¡CCOINS Ok y Exit Ok\n");
-		//free_map2d(&copy_map);
 	}
 	else
 		handle_error(ERROR_COINS_EXIT, 20, map, NULL);
+
+	free_map2d(&copy_map);
+	
 }

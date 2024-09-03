@@ -6,14 +6,14 @@
 /*   By: anamedin <anamedin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 12:30:32 by anamedin          #+#    #+#             */
-/*   Updated: 2024/09/03 13:52:45 by anamedin         ###   ########.fr       */
+/*   Updated: 2024/09/03 18:53:10 by anamedin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #include "../includes/so_long.h"
 
-/*void free_images(t_game *game)
+void free_images(t_game *game)
 {
     if (game && game->mlx_ptr)
     {
@@ -41,7 +41,6 @@ void ft_close_game(t_game *game)
     if (game)
     {
         free_images(game);
-       
         if (game->map)
             free_map2d(game->map);
         if (game->win_ptr)
@@ -51,35 +50,12 @@ void ft_close_game(t_game *game)
             mlx_destroy_display(game->mlx_ptr);
             free(game->mlx_ptr);
         }
-         
-
         free(game); 
     }
     exit(0);
-}*/
-
-void free_images(t_game *game)
-{ 
-    mlx_destroy_image(game->mlx_ptr, game->wall.xpm_ptr);
-    mlx_destroy_image(game->mlx_ptr, game->floor.xpm_ptr);
-    mlx_destroy_image(game->mlx_ptr, game->coin.xpm_ptr);
-    mlx_destroy_image(game->mlx_ptr, game->exit_closed.xpm_ptr);
-    mlx_destroy_image(game->mlx_ptr, game->player_front.xpm_ptr);
-    mlx_destroy_image(game->mlx_ptr, game->player_left.xpm_ptr);
-    mlx_destroy_image(game->mlx_ptr, game->player_right.xpm_ptr);
-    mlx_destroy_image(game->mlx_ptr, game->player_back.xpm_ptr);
 }
 
 
-void ft_close_game(t_game *game)
-{
-    free_images(game);
-    free_map2d(game->map);
-    mlx_destroy_window(game->mlx_ptr, game->win_ptr);
-    mlx_destroy_display(game->mlx_ptr);
-    free(game->mlx_ptr);
-    free(game); 
-}
 void	ft_victory(t_game *game)
 {
 	ft_printf("Congratulations! You have won the game in %d moves!\n", game->movements);
