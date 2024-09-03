@@ -6,14 +6,14 @@
 /*   By: anamedin <anamedin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 12:30:32 by anamedin          #+#    #+#             */
-/*   Updated: 2024/09/03 18:53:10 by anamedin         ###   ########.fr       */
+/*   Updated: 2024/09/03 19:55:21 by anamedin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "../includes/so_long.h"
 
-void free_images(t_game *game)
+// Liberar todas las imágenes cargadas en el juego
+void free_images (t_game *game)
 {
     if (game && game->mlx_ptr)
     {
@@ -36,6 +36,7 @@ void free_images(t_game *game)
     }
 }
 
+// Cerrar el juego y liberar todos los recursos
 void ft_close_game(t_game *game)
 {
     if (game)
@@ -55,9 +56,11 @@ void ft_close_game(t_game *game)
     exit(0);
 }
 
-
-void	ft_victory(t_game *game)
+// Mostrar mensaje de victoria y cerrar el juego
+void ft_victory(t_game *game)
 {
-	ft_printf("Congratulations! You have won the game in %d moves!\n", game->movements);
-	ft_close_game(game);
+    ft_printf("Congratulations! You have won the game in %d moves!\n",
+        game->movements);
+    ft_close_game(game);
 }
+
