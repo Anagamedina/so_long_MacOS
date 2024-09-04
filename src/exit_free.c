@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   exit_free.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anamedin <anamedin@student.42barcel>       +#+  +:+       +#+        */
+/*   By: anamedin <anamedin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/04 13:57:56 by anamedin          #+#    #+#             */
-/*   Updated: 2024/09/04 14:56:18 by anamedin         ###   ########.fr       */
+/*   Updated: 2024/09/04 22:36:23 by anamedin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-void	ft_free_images(t_game *game)
+void	free_images(t_game *game)
 {
 	if (game && game->mlx_ptr)
 	{
@@ -40,7 +40,7 @@ void    ft_close_game(t_game *game)
 {
     if (game)
     {
-        ft_free_images(game);
+        free_images(game);
         if (game->map)
             free_map2d(game->map);
         if (game->win_ptr)

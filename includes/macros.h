@@ -6,11 +6,11 @@
 /*   By: anamedin <anamedin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 16:42:16 by anamedin          #+#    #+#             */
-/*   Updated: 2024/09/04 14:42:36 by anamedin         ###   ########.fr       */
+/*   Updated: 2024/09/04 23:12:03 by anamedin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# ifnde ERROR_MACROS_H
+# ifndef ERROR_MACROS_H
 # define ERROR_MACROS_H
 
 /*--------------------Error and free------------------*/
@@ -48,7 +48,7 @@
 
 
 /*-------------------- XPM PATHS -----------------------*/
-# ifndef __APPLE__
+# ifdef __APPLE__
 # define PLAYER_BACK_XPM "/Users/catalinaburgos/Documents/42/so_long_ana/assets/player_back.xpm"
 # define PLAYER_FRONT_XPM "/Users/catalinaburgos/Documents/42/so_long_ana/assets/player_front.xpm"
 # define PLAYER_RIGHT_XPM "/Users/catalinaburgos/Documents/42/so_long_ana/assets/player_right.xpm"
@@ -59,6 +59,7 @@
 # define WALL_XPM "/Users/catalinaburgos/Documents/42/so_long_ana/assets/wall.xpm"
 # define EXIT_CLOSED_XPM "/Users/catalinaburgos/Documents/42/so_long_ana/assets/exit-closed.xpm"
 # define OPEN_EXIT_XPM "/Users/catalinaburgos/Documents/42/so_long_ana/assets/open-exit.xpm"
+
 # else
 
 # define PLAYER_FRONT_XPM "assets/player_front.xpm"
@@ -79,14 +80,13 @@
 # define KEY_D      100
 # define KEY_Q      113
 
-# ifndef __APPLE__
+# ifdef __APPLE__
 # define KEY_ESC     53
 # define KEY_UP     126
 # define KEY_DOWN   125
 # define KEY_LEFT   123
 # define KEY_RIGHT  124
 # else
-
 # define KEY_ESC    65307
 # define KEY_UP     65362
 # define KEY_DOWN   65364
@@ -94,4 +94,4 @@
 # define KEY_RIGHT  65363
 # endif
 
-# endif
+#endif

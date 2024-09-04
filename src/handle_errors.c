@@ -6,7 +6,7 @@
 /*   By: anamedin <anamedin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 13:33:16 by anamedin          #+#    #+#             */
-/*   Updated: 2024/09/03 18:33:54 by anamedin         ###   ########.fr       */
+/*   Updated: 2024/09/04 23:35:39 by anamedin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	free_map2d(t_map *map)
 		}
 		free(map->matrix);
 	}
-	free(map);
+	//free(map);
 }
 
 void	handle_error(char *str, int size, t_map *map, t_game *game)
