@@ -6,7 +6,7 @@
 /*   By: anamedin <anamedin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 14:07:52 by anamedin          #+#    #+#             */
-/*   Updated: 2024/09/03 13:30:15 by anamedin         ###   ########.fr       */
+/*   Updated: 2024/09/04 14:21:37 by anamedin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,18 +43,14 @@ t_game	*init_game(void)
 	game = (t_game *)malloc(sizeof(t_game));
 	if (!game)
 		return (NULL);
-	
-	game->map = init_map();  
+	game->map = init_map();
 	if (!game->map)
 	{
 		free(game);
 		return (NULL);
 	}
-	
 	game->movements = 0;
 	game->player_sprite = 0;
-
-	// Inicialización de las imágenes a NULL
 	game->wall.xpm_ptr = NULL;
 	game->floor.xpm_ptr = NULL;
 	game->coin.xpm_ptr = NULL;
@@ -63,11 +59,8 @@ t_game	*init_game(void)
 	game->player_left.xpm_ptr = NULL;
 	game->player_right.xpm_ptr = NULL;
 	game->player_back.xpm_ptr = NULL;
-
 	return (game);
 }
-
-
 /*t_game	*init_game(void)
 {
 	t_game	*game;

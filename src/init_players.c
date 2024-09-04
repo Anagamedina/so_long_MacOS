@@ -6,7 +6,7 @@
 /*   By: anamedin <anamedin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/14 16:13:35 by anamedin          #+#    #+#             */
-/*   Updated: 2024/09/03 18:11:10 by anamedin         ###   ########.fr       */
+/*   Updated: 2024/09/04 14:20:22 by anamedin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,13 +92,12 @@ void	validation_player(int *ccoins, t_map *map)
 	players_init_pos(map);
 	copy_map_matrix(&copy_map, map);
 	flood_fill(&copy_map, map->player_pos.x, map->player_pos.y, ccoins);
-	if (*ccoins == map->coins || map->matrix[map->exit_pos.x][map->exit_pos.y] == 'V')
+	if (*ccoins == map->coins
+		|| map->matrix[map->exit_pos.x][map->exit_pos.y] == 'V')
 	{
 		ft_printf("¡CCOINS Ok y Exit Ok\n");
 	}
 	else
 		handle_error(ERROR_COINS_EXIT, 20, map, NULL);
-
 	free_map2d(&copy_map);
-	
 }

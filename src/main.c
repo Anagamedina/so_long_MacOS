@@ -6,17 +6,19 @@
 /*   By: anamedin <anamedin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 14:31:54 by anamedin          #+#    #+#             */
-/*   Updated: 2024/09/02 11:12:23 by anamedin         ###   ########.fr       */
+/*   Updated: 2024/09/04 14:24:28 by anamedin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
-static int close_window(t_game *game)
+
+static int  close_window(t_game *game)
 {
     mlx_destroy_window(game->mlx_ptr, game->win_ptr);
     free_game(game);
     exit(0);
 }
+
 int main(int argc, char **argv)
 {
     t_game  *game;
@@ -42,6 +44,5 @@ int main(int argc, char **argv)
         }
         free_game(game); 
     }
-
     return (0);
 }  
