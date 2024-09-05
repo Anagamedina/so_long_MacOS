@@ -6,7 +6,7 @@
 /*   By: anamedin <anamedin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 11:20:08 by anamedin          #+#    #+#             */
-/*   Updated: 2024/09/04 23:34:47 by anamedin         ###   ########.fr       */
+/*   Updated: 2024/09/05 13:14:31 by anamedin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,10 +67,10 @@ void	identify_images(t_game *game, int i, int j)
 	int	x;
 	int	y;
 
-	while (i < game->map->rows)
+	while (++i < game->map->rows)
 	{
-		j = 0;
-		while (j < game->map->cols)
+		j = -1;
+		while (++j < game->map->cols)
 		{
 			x = j * TILE_SIZE;
 			y = i * TILE_SIZE;
@@ -87,9 +87,9 @@ void	identify_images(t_game *game, int i, int j)
 			}
 			else if (game->map->matrix[i][j] == COINS)
 				put_image(game, game->coin.xpm_ptr, x, y);
-			j++;
+			//j++;
 		}
-		i++;
+		//i++;
 	}
 }
 
@@ -106,5 +106,5 @@ void	init_sprite(t_game *game)
 	new_image(game, &game->coin.xpm_ptr, COIN_XPM);
 	new_image(game, &game->floor.xpm_ptr, FLOOR_XPM);
 	new_image(game, &game->wall.xpm_ptr, WALL_XPM);
-	identify_images(game, 0, 0);
+	identify_images(game, -1, -1);
 }

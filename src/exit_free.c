@@ -6,7 +6,7 @@
 /*   By: anamedin <anamedin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/04 13:57:56 by anamedin          #+#    #+#             */
-/*   Updated: 2024/09/04 22:36:23 by anamedin         ###   ########.fr       */
+/*   Updated: 2024/09/05 12:50:45 by anamedin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,38 +28,35 @@ void	free_images(t_game *game)
 			mlx_destroy_image(game->mlx_ptr, game->player_front.xpm_ptr);
 		if (game->player_left.xpm_ptr)
 			mlx_destroy_image(game->mlx_ptr, game->player_left.xpm_ptr);
-        if (game->player_right.xpm_ptr)
-            mlx_destroy_image(game->mlx_ptr, game->player_right.xpm_ptr);
-        if (game->player_back.xpm_ptr)
-            mlx_destroy_image(game->mlx_ptr, game->player_back.xpm_ptr);
-    }
+		if (game->player_right.xpm_ptr)
+			mlx_destroy_image(game->mlx_ptr, game->player_right.xpm_ptr);
+		if (game->player_back.xpm_ptr)
+			mlx_destroy_image(game->mlx_ptr, game->player_back.xpm_ptr);
+	}
 }
 
-// Cerrar el juego y liberar todos los recursos
-void    ft_close_game(t_game *game)
+void	ft_close_game(t_game *game)
 {
-    if (game)
-    {
-        free_images(game);
-        if (game->map)
-            free_map2d(game->map);
-        if (game->win_ptr)
-            mlx_destroy_window(game->mlx_ptr, game->win_ptr);
-        if (game->mlx_ptr)
-        {
-            mlx_destroy_display(game->mlx_ptr);
-            free(game->mlx_ptr);
-        }
-        free(game); 
-    }
-    exit(0);
+	if (game)
+	{
+		free_images(game);
+		if (game->map)
+			free_map2d(game->map);
+		if (game->win_ptr)
+			mlx_destroy_window(game->mlx_ptr, game->win_ptr);
+		if (game->mlx_ptr)
+		{
+			mlx_destroy_display(game->mlx_ptr);
+			free(game->mlx_ptr);
+		}
+		free(game);
+	}
+	exit(0);
 }
 
-// Mostrar mensaje de victoria y cerrar el juego
-void    ft_victory(t_game *game)
+void	ft_victory(t_game *game)
 {
-    ft_printf("Congratulations! You have won the game in %d moves!\\n",
-        game->movements);
-    ft_close_game(game);
+	ft_printf("Congratulations! You have won the game in %d moves!\n", \
+		game->movements);
+	ft_close_game(game);
 }
-

@@ -6,12 +6,12 @@
 /*   By: anamedin <anamedin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 16:42:16 by anamedin          #+#    #+#             */
-/*   Updated: 2024/09/04 23:12:03 by anamedin         ###   ########.fr       */
+/*   Updated: 2024/09/05 13:10:51 by anamedin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# ifndef ERROR_MACROS_H
-# define ERROR_MACROS_H
+#ifndef MACROS_H
+# define MACROS_H
 
 /*--------------------Error and free------------------*/
 # define ERROR_INVALID_MAP "error\nInvalid map file\n"
@@ -43,34 +43,28 @@
 /*-------------------- SIZE OF SPRITE ------------------*/
 # define TILE_SIZE 32
 
-/*-------------------- -------------- ------------------*/
-
-
-
 /*-------------------- XPM PATHS -----------------------*/
 # ifdef __APPLE__
-# define PLAYER_BACK_XPM "/Users/catalinaburgos/Documents/42/so_long_ana/assets/player_back.xpm"
-# define PLAYER_FRONT_XPM "/Users/catalinaburgos/Documents/42/so_long_ana/assets/player_front.xpm"
-# define PLAYER_RIGHT_XPM "/Users/catalinaburgos/Documents/42/so_long_ana/assets/player_right.xpm"
-# define PLAYER_LEFT_XPM "/Users/catalinaburgos/Documents/42/so_long_ana/assets/player_left.xpm"
+#  define PLAYER_BACK_XPM "/Users/catalinaburgos/Documents/42/so_long_ana/assets/player_back.xpm"
+#  define PLAYER_FRONT_XPM "/Users/catalinaburgos/Documents/42/so_long_ana/assets/player_front.xpm"
+#  define PLAYER_RIGHT_XPM "/Users/catalinaburgos/Documents/42/so_long_ana/assets/player_right.xpm"
+#  define PLAYER_LEFT_XPM "/Users/catalinaburgos/Documents/42/so_long_ana/assets/player_left.xpm"
 
-# define COIN_XPM "/Users/catalinaburgos/Documents/42/so_long_ana/assets/coin.xpm"
-# define FLOOR_XPM "/Users/catalinaburgos/Documents/42/so_long_ana/assets/floor.xpm"
-# define WALL_XPM "/Users/catalinaburgos/Documents/42/so_long_ana/assets/wall.xpm"
-# define EXIT_CLOSED_XPM "/Users/catalinaburgos/Documents/42/so_long_ana/assets/exit-closed.xpm"
-# define OPEN_EXIT_XPM "/Users/catalinaburgos/Documents/42/so_long_ana/assets/open-exit.xpm"
-
+#  define COIN_XPM "/Users/catalinaburgos/Documents/42/so_long_ana/assets/coin.xpm"
+#  define FLOOR_XPM "/Users/catalinaburgos/Documents/42/so_long_ana/assets/floor.xpm"
+#  define WALL_XPM "/Users/catalinaburgos/Documents/42/so_long_ana/assets/wall.xpm"
+#  define EXIT_CLOSED_XPM "/Users/catalinaburgos/Documents/42/so_long_ana/assets/exit-closed.xpm"
+#  define OPEN_EXIT_XPM "/Users/catalinaburgos/Documents/42/so_long_ana/assets/open-exit.xpm"
 # else
-
-# define PLAYER_FRONT_XPM "assets/player_front.xpm"
-# define PLAYER_LEFT_XPM "assets/player_left.xpm"
-# define PLAYER_RIGHT_XPM "assets/player_right.xpm"
-# define PLAYER_BACK_XPM "assets/player_back.xpm"
-# define COIN_XPM "assets/coin.xpm"
-# define FLOOR_XPM "assets/floor.xpm"
-# define WALL_XPM "assets/wall.xpm"
-# define EXIT_CLOSED_XPM "assets/exit-closed.xpm"
-# define OPEN_EXIT_XPM "assets/open-exit.xpm"
+#  define PLAYER_FRONT_XPM "assets/player_front.xpm"
+#  define PLAYER_LEFT_XPM "assets/player_left.xpm"
+#  define PLAYER_RIGHT_XPM "assets/player_right.xpm"
+#  define PLAYER_BACK_XPM "assets/player_back.xpm"
+#  define COIN_XPM "assets/coin.xpm"
+#  define FLOOR_XPM "assets/floor.xpm"
+#  define WALL_XPM "assets/wall.xpm"
+#  define EXIT_CLOSED_XPM "assets/exit-closed.xpm"
+#  define OPEN_EXIT_XPM "assets/open-exit.xpm"
 # endif
 
 /*-------------------- KEYS EVENTS ------------------*/
@@ -81,17 +75,17 @@
 # define KEY_Q      113
 
 # ifdef __APPLE__
-# define KEY_ESC     53
-# define KEY_UP     126
-# define KEY_DOWN   125
-# define KEY_LEFT   123
-# define KEY_RIGHT  124
+#  define KEY_ESC    53
+#  define KEY_UP     126
+#  define KEY_DOWN   125
+#  define KEY_LEFT   123
+#  define KEY_RIGHT  124
 # else
-# define KEY_ESC    65307
-# define KEY_UP     65362
-# define KEY_DOWN   65364
-# define KEY_LEFT   65361
-# define KEY_RIGHT  65363
+#  define KEY_ESC    65307
+#  define KEY_UP     65362
+#  define KEY_DOWN   65364
+#  define KEY_LEFT   65361
+#  define KEY_RIGHT  65363
 # endif
 
-#endif
+#endif /* MACROS_H */
