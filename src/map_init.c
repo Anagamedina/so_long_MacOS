@@ -6,7 +6,7 @@
 /*   By: anamedin <anamedin@student.42barcelona.c>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/09 21:36:41 by anamedin          #+#    #+#             */
-/*   Updated: 2024/09/02 18:33:27 by anamedin         ###   ########.fr       */
+/*   Updated: 2024/09/05 13:39:02 by anamedin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,8 @@ void	read_map(char *path, t_map *map)
 	while (map->matrix[i] != NULL)
 		i++;
 	map->rows = i;
+	if (map->matrix[0] == NULL)
+		handle_error(ERROR_INVALID_MAP, 30, map, NULL);
 	line = (int) ft_strlen(map->matrix[0]);
 	map->cols = line;
 	i = 0;

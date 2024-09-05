@@ -6,7 +6,7 @@
 /*   By: anamedin <anamedin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/14 16:13:35 by anamedin          #+#    #+#             */
-/*   Updated: 2024/09/04 23:32:37 by anamedin         ###   ########.fr       */
+/*   Updated: 2024/09/05 14:35:14 by anamedin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ static void	copy_map_matrix(t_map *copy_map, t_map *map)
 	copy_map->matrix = malloc(sizeof (char *) * map->rows);
 	if (!copy_map->matrix)
 	{
-		handle_error("Error: Memory allocation failed\n", 30, map, NULL);
+		handle_error(ERROR_MEMORY_ALLOCATION, 30, map, NULL);
 		return ;
 	}
 	i = 0;
@@ -71,8 +71,7 @@ static void	copy_map_matrix(t_map *copy_map, t_map *map)
 		copy_map->matrix[i] = malloc(sizeof(char) * map->cols);
 		if (!copy_map->matrix[i])
 		{
-			//free_map2d(copy_map);
-			handle_error("Error: Memory allocation failed\n", 30, map, NULL);
+			handle_error(ERROR_MEMORY_ALLOCATION, 30, map, NULL);
 			return ;
 		}
 		j = 0;

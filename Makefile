@@ -22,7 +22,7 @@ ifeq ($(UNAME), Linux)
 else
 	INCLUDES = -I/opt/X11/include -Imlx
 	MLX_FLAGS = -Lmlx -lmlx -L/usr/X11/lib -lXext -lX11 -framework OpenGL -framework AppKit
-	MLX_LIB = $(MLX_DIR)/libmlx.a
+	MLX_LIB = $(MLX_DIR)/libmlx_Darwin.a
 	MLX = -L$(MLX_DIR) -lmlx -L/usr/X11/lib -lXext -lX11 -framework OpenGL -framework AppKit
 endif
 
@@ -76,7 +76,7 @@ $(MLX_LIB):
 clean:
 	$(MAKE) -C $(LIBFT_DIR) clean
 	$(MAKE) -C $(MLX_DIR) clean
-	rm -f $(OBJ)
+	rm -rf $(OBJ_DIR)
 
 fclean: clean
 	$(MAKE) -C $(LIBFT_DIR) fclean

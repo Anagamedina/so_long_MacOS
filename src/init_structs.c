@@ -6,7 +6,7 @@
 /*   By: anamedin <anamedin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 14:07:52 by anamedin          #+#    #+#             */
-/*   Updated: 2024/09/04 14:21:37 by anamedin         ###   ########.fr       */
+/*   Updated: 2024/09/05 14:18:51 by anamedin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ t_game	*init_game(void)
 	game->map = init_map();
 	if (!game->map)
 	{
-		free(game);
+//		free(game);
 		return (NULL);
 	}
 	game->movements = 0;

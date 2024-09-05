@@ -6,7 +6,7 @@
 /*   By: anamedin <anamedin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 11:20:08 by anamedin          #+#    #+#             */
-/*   Updated: 2024/09/05 13:14:31 by anamedin         ###   ########.fr       */
+/*   Updated: 2024/09/05 13:45:17 by anamedin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,9 +87,7 @@ void	identify_images(t_game *game, int i, int j)
 			}
 			else if (game->map->matrix[i][j] == COINS)
 				put_image(game, game->coin.xpm_ptr, x, y);
-			//j++;
 		}
-		//i++;
 	}
 }
 
