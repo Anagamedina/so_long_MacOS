@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_items.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anamedin <anamedin@student.42barcel>       +#+  +:+       +#+        */
+/*   By: anamedin <anamedin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 21:46:21 by anamedin          #+#    #+#             */
-/*   Updated: 2024/09/04 14:26:35 by anamedin         ###   ########.fr       */
+/*   Updated: 2024/09/06 16:30:47 by anamedin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,28 @@ static void	validations_items(t_map *copy_map)
 	}
 }
 
+static int check_items(t_map *map)
+{
+    int x = 0;
+    int y;
+
+    while (x < map->rows)
+    {
+        y = 0;
+        while (y < map->cols)
+        {
+            if (map->matrix[x][y] != '1' && map->matrix[x][y] != 'P' \
+				&& map->matrix[x][y] != 'E' && map->matrix[x][y] != 'C' \
+				&& map->matrix[x][y] != '0')
+			{
+				return 1;
+			}
+            y++;
+        }
+        x++;
+    }
+    return 0;
+}
 /************************VALIDATION MAIN **************************/
 
 void	map_items(t_map *map)
@@ -49,5 +71,9 @@ void	map_items(t_map *map)
 		}
 		i++;
 	}
+	if (check_items(map) == 1)
+	{
+        handle_error(ERROR_ITEMS, 20, map, NULL);
+    }
 	validations_items (map);
 }

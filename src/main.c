@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: anamedin <anamedin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/11 14:31:54 by anamedin          #+#    #+#             */
-/*   Updated: 2024/09/05 12:52:57 by anamedin         ###   ########.fr       */
+/*   Created: 2024/09/05 20:20:29 by anamedin          #+#    #+#             */
+/*   Updated: 2024/09/06 16:42:53 by anamedin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	main(int argc, char **argv)
 	game = NULL;
 	ccoins = 0;
 	if (argc != 2)
-		handle_exit(ERROR_INVALID_ARG, 28);
+		handle_exit(ERROR_INVALID_ARG, 26);
 	else
 	{
 		game = init_game();

@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: anamedin <anamedin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/14 16:13:35 by anamedin          #+#    #+#             */
-/*   Updated: 2024/09/05 14:35:14 by anamedin         ###   ########.fr       */
+/*   Created: 2024/09/05 20:21:35 by anamedin          #+#    #+#             */
+/*   Updated: 2024/09/06 16:25:01by anamedin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,11 +43,13 @@ void	flood_fill(t_map *map, int x, int y, int *ccoins)
 {
 	if (x < 0 || y < 0 || y >= map->cols || x >= map->rows)
 		return ;
-	if (map->matrix[x][y] == '1' || map->matrix[x][y] == 'V')
+	if (map->matrix[x][y] == '1' || map->matrix[x][y] == 'V' \
+		|| map->matrix[x][y] == 'E')
 		return ;
 	if (map->matrix[x][y] == 'C')
 		(*ccoins)++;
 	map->matrix[x][y] = 'V';
+	
 	flood_fill(map, x + 1, y, ccoins);
 	flood_fill(map, x - 1, y, ccoins);
 	flood_fill(map, x, y + 1, ccoins);
@@ -61,19 +63,13 @@ static void	copy_map_matrix(t_map *copy_map, t_map *map)
 
 	copy_map->matrix = malloc(sizeof (char *) * map->rows);
 	if (!copy_map->matrix)
-	{
-		handle_error(ERROR_MEMORY_ALLOCATION, 30, map, NULL);
-		return ;
-	}
+		handle_error("Error: Memory allocation failed\n", 30, map, NULL);
 	i = 0;
 	while (i < map->rows)
 	{
 		copy_map->matrix[i] = malloc(sizeof(char) * map->cols);
 		if (!copy_map->matrix[i])
-		{
-			handle_error(ERROR_MEMORY_ALLOCATION, 30, map, NULL);
-			return ;
-		}
+			handle_error("Error: Memory allocation failed\n", 30, map, NULL);
 		j = 0;
 		while (j < map->cols)
 		{
@@ -84,8 +80,28 @@ static void	copy_map_matrix(t_map *copy_map, t_map *map)
 	}
 }
 
-/************************VALIDATION MAIN **************************/
+static int check_remaining_coins(t_map *map)
+{
+    int x = 0;
+    int y;
 
+    while (x < map->rows)
+    {
+        y = 0;
+        while (y < map->cols)
+        {
+            if (map->matrix[x][y] == '0')
+            {
+                return 1;
+            }
+            y++;
+        }
+        x++;
+    }
+    return 0;
+}
+
+/************************VALIDATION MAIN **************************/
 void	validation_player(int *ccoins, t_map *map)
 {
 	t_map	copy_map;
@@ -94,7 +110,14 @@ void	validation_player(int *ccoins, t_map *map)
 	copy_map.cols = map->cols;
 	players_init_pos(map);
 	copy_map_matrix(&copy_map, map);
+
+
 	flood_fill(&copy_map, map->player_pos.x, map->player_pos.y, ccoins);
+	 if (check_remaining_coins(&copy_map))
+    {
+        free_map2d(&copy_map);
+        handle_error(ERROR_INVALID_MAP, 30, map, NULL);
+    }
 	if (*ccoins == map->coins
 		|| map->matrix[map->exit_pos.x][map->exit_pos.y] == 'V')
 	{

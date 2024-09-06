@@ -3,14 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   map_extensions.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anamedin <anamedin@student.42barcel>       +#+  +:+       +#+        */
+/*   By: anamedin <anamedin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 16:25:47 by anamedin          #+#    #+#             */
-/*   Updated: 2024/09/04 14:24:36 by anamedin         ###   ########.fr       */
+/*   Updated: 2024/09/06 16:29:13 by anamedin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//Contiene funciones para leer y validar el archivo de mapa
 #include "../includes/so_long.h"
 
 static int	validate_path(char *argv)
@@ -89,5 +88,5 @@ void	map_format_border_check(char *path, t_map *map)
 			ft_printf("Walls ok \n");
 	}
 	else
-		ft_printf("error file\n");
+		handle_exit(ERROR_OPEN_FILE, 32);
 }
